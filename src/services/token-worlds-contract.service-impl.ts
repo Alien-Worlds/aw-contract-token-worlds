@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Thu, 29 Jun 2023 08:14:20 GMT
+ * Last updated on: Thu, 29 Jun 2023 08:50:21 GMT
  */
 
 import { 
@@ -58,7 +58,7 @@ export class TokenWorldsContractServiceImpl
       table: 'accounts',
       table_key: 'balance',
     });
-  };
+  }
 
   /**
    * A EosSmartContractServiceImpl for the members table.
@@ -75,7 +75,7 @@ export class TokenWorldsContractServiceImpl
       table: 'members',
       table_key: 'sender',
     });
-  };
+  }
 
   /**
    * A EosSmartContractServiceImpl for the memberterms table.
@@ -92,7 +92,7 @@ export class TokenWorldsContractServiceImpl
       table: 'memberterms',
       table_key: 'terms',
     });
-  };
+  }
 
   /**
    * A EosSmartContractServiceImpl for the stakeconfig table.
@@ -109,7 +109,7 @@ export class TokenWorldsContractServiceImpl
       table: 'stakeconfig',
       table_key: 'enabled',
     });
-  };
+  }
 
   /**
    * A EosSmartContractServiceImpl for the stakes table.
@@ -126,7 +126,7 @@ export class TokenWorldsContractServiceImpl
       table: 'stakes',
       table_key: 'account',
     });
-  };
+  }
 
   /**
    * A EosSmartContractServiceImpl for the staketime table.
@@ -143,7 +143,7 @@ export class TokenWorldsContractServiceImpl
       table: 'staketime',
       table_key: 'account',
     });
-  };
+  }
 
   /**
    * A EosSmartContractServiceImpl for the stat table.
@@ -160,7 +160,7 @@ export class TokenWorldsContractServiceImpl
       table: 'stat',
       table_key: 'supply',
     });
-  };
+  }
 
   /**
    * A EosSmartContractServiceImpl for the unstakes table.
@@ -177,6 +177,6 @@ export class TokenWorldsContractServiceImpl
       table: 'unstakes',
       table_key: 'key',
     });
-  };
+  }
 
 }

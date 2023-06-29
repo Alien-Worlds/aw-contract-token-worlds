@@ -1,3 +1,8 @@
+/**
+ * Auto generated. DO NOT edit manually.
+ * Last updated on: Thu, 29 Jun 2023 08:14:20 GMT
+ */
+
 import { 
   AccountsRawModel,
   MembersRawModel,
@@ -44,9 +49,9 @@ export class TokenWorldsContractServiceImpl
    * @type {EosSmartContractServiceImpl}
    * @param {GetTableRowsOptions} options 
    */
-  public readonly fetchAccounts = async (
+  public async fetchAccounts (
     options?: GetTableRowsOptions
-  ): Promise<Result<AccountsRawModel[], Error>> => {
+  ): Promise<Result<AccountsRawModel[], Error>> {
     return await this.getAll<AccountsRawModel>('candidate_name', {
       ...options,
       code: 'token.worlds',
@@ -61,9 +66,9 @@ export class TokenWorldsContractServiceImpl
    * @type {EosSmartContractServiceImpl}
    * @param {GetTableRowsOptions} options 
    */
-  public readonly fetchMembers = async (
+  public async fetchMembers (
     options?: GetTableRowsOptions
-  ): Promise<Result<MembersRawModel[], Error>> => {
+  ): Promise<Result<MembersRawModel[], Error>> {
     return await this.getAll<MembersRawModel>('candidate_name', {
       ...options,
       code: 'token.worlds',
@@ -78,9 +83,9 @@ export class TokenWorldsContractServiceImpl
    * @type {EosSmartContractServiceImpl}
    * @param {GetTableRowsOptions} options 
    */
-  public readonly fetchMemberterms = async (
+  public async fetchMemberterms (
     options?: GetTableRowsOptions
-  ): Promise<Result<MembertermsRawModel[], Error>> => {
+  ): Promise<Result<MembertermsRawModel[], Error>> {
     return await this.getAll<MembertermsRawModel>('candidate_name', {
       ...options,
       code: 'token.worlds',
@@ -95,9 +100,9 @@ export class TokenWorldsContractServiceImpl
    * @type {EosSmartContractServiceImpl}
    * @param {GetTableRowsOptions} options 
    */
-  public readonly fetchStakeconfig = async (
+  public async fetchStakeconfig (
     options?: GetTableRowsOptions
-  ): Promise<Result<StakeconfigRawModel[], Error>> => {
+  ): Promise<Result<StakeconfigRawModel[], Error>> {
     return await this.getAll<StakeconfigRawModel>('candidate_name', {
       ...options,
       code: 'token.worlds',
@@ -112,9 +117,9 @@ export class TokenWorldsContractServiceImpl
    * @type {EosSmartContractServiceImpl}
    * @param {GetTableRowsOptions} options 
    */
-  public readonly fetchStakes = async (
+  public async fetchStakes (
     options?: GetTableRowsOptions
-  ): Promise<Result<StakesRawModel[], Error>> => {
+  ): Promise<Result<StakesRawModel[], Error>> {
     return await this.getAll<StakesRawModel>('candidate_name', {
       ...options,
       code: 'token.worlds',
@@ -129,9 +134,9 @@ export class TokenWorldsContractServiceImpl
    * @type {EosSmartContractServiceImpl}
    * @param {GetTableRowsOptions} options 
    */
-  public readonly fetchStaketime = async (
+  public async fetchStaketime (
     options?: GetTableRowsOptions
-  ): Promise<Result<StaketimeRawModel[], Error>> => {
+  ): Promise<Result<StaketimeRawModel[], Error>> {
     return await this.getAll<StaketimeRawModel>('candidate_name', {
       ...options,
       code: 'token.worlds',
@@ -146,9 +151,9 @@ export class TokenWorldsContractServiceImpl
    * @type {EosSmartContractServiceImpl}
    * @param {GetTableRowsOptions} options 
    */
-  public readonly fetchStat = async (
+  public async fetchStat (
     options?: GetTableRowsOptions
-  ): Promise<Result<StatRawModel[], Error>> => {
+  ): Promise<Result<StatRawModel[], Error>> {
     return await this.getAll<StatRawModel>('candidate_name', {
       ...options,
       code: 'token.worlds',
@@ -163,9 +168,9 @@ export class TokenWorldsContractServiceImpl
    * @type {EosSmartContractServiceImpl}
    * @param {GetTableRowsOptions} options 
    */
-  public readonly fetchUnstakes = async (
+  public async fetchUnstakes (
     options?: GetTableRowsOptions
-  ): Promise<Result<UnstakesRawModel[], Error>> => {
+  ): Promise<Result<UnstakesRawModel[], Error>> {
     return await this.getAll<UnstakesRawModel>('candidate_name', {
       ...options,
       code: 'token.worlds',

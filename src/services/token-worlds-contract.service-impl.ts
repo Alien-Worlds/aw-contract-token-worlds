@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Thu, 29 Jun 2023 08:50:21 GMT
+ * Last updated on: Tue, 04 Jul 2023 13:49:54 GMT
  */
 
 import { 
@@ -52,7 +52,7 @@ export class TokenWorldsContractServiceImpl
   public async fetchAccounts (
     options?: GetTableRowsOptions
   ): Promise<Result<AccountsRawModel[], Error>> {
-    return await this.getAll<AccountsRawModel>('candidate_name', {
+    return await this.getAll<AccountsRawModel>('balance', {
       ...options,
       code: 'token.worlds',
       table: 'accounts',
@@ -69,7 +69,7 @@ export class TokenWorldsContractServiceImpl
   public async fetchMembers (
     options?: GetTableRowsOptions
   ): Promise<Result<MembersRawModel[], Error>> {
-    return await this.getAll<MembersRawModel>('candidate_name', {
+    return await this.getAll<MembersRawModel>('sender', {
       ...options,
       code: 'token.worlds',
       table: 'members',
@@ -86,7 +86,7 @@ export class TokenWorldsContractServiceImpl
   public async fetchMemberterms (
     options?: GetTableRowsOptions
   ): Promise<Result<MembertermsRawModel[], Error>> {
-    return await this.getAll<MembertermsRawModel>('candidate_name', {
+    return await this.getAll<MembertermsRawModel>('terms', {
       ...options,
       code: 'token.worlds',
       table: 'memberterms',
@@ -103,7 +103,7 @@ export class TokenWorldsContractServiceImpl
   public async fetchStakeconfig (
     options?: GetTableRowsOptions
   ): Promise<Result<StakeconfigRawModel[], Error>> {
-    return await this.getAll<StakeconfigRawModel>('candidate_name', {
+    return await this.getAll<StakeconfigRawModel>('enabled', {
       ...options,
       code: 'token.worlds',
       table: 'stakeconfig',
@@ -120,7 +120,7 @@ export class TokenWorldsContractServiceImpl
   public async fetchStakes (
     options?: GetTableRowsOptions
   ): Promise<Result<StakesRawModel[], Error>> {
-    return await this.getAll<StakesRawModel>('candidate_name', {
+    return await this.getAll<StakesRawModel>('account', {
       ...options,
       code: 'token.worlds',
       table: 'stakes',
@@ -137,7 +137,7 @@ export class TokenWorldsContractServiceImpl
   public async fetchStaketime (
     options?: GetTableRowsOptions
   ): Promise<Result<StaketimeRawModel[], Error>> {
-    return await this.getAll<StaketimeRawModel>('candidate_name', {
+    return await this.getAll<StaketimeRawModel>('account', {
       ...options,
       code: 'token.worlds',
       table: 'staketime',
@@ -154,7 +154,7 @@ export class TokenWorldsContractServiceImpl
   public async fetchStat (
     options?: GetTableRowsOptions
   ): Promise<Result<StatRawModel[], Error>> {
-    return await this.getAll<StatRawModel>('candidate_name', {
+    return await this.getAll<StatRawModel>('supply', {
       ...options,
       code: 'token.worlds',
       table: 'stat',
@@ -171,7 +171,7 @@ export class TokenWorldsContractServiceImpl
   public async fetchUnstakes (
     options?: GetTableRowsOptions
   ): Promise<Result<UnstakesRawModel[], Error>> {
-    return await this.getAll<UnstakesRawModel>('candidate_name', {
+    return await this.getAll<UnstakesRawModel>('key', {
       ...options,
       code: 'token.worlds',
       table: 'unstakes',

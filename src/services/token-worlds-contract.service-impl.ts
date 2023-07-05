@@ -154,11 +154,11 @@ export class TokenWorldsContractServiceImpl
   public async fetchStat(
     options?: GetTableRowsOptions
   ): Promise<Result<StatRawModel[], Error>> {
-    return await this.getAll<StatRawModel>('supply', {
+    return await this.getAll<StatRawModel>('issuer', {
       ...options,
       code: 'token.worlds',
       table: 'stat',
-      table_key: 'supply',
+      table_key: 'issuer',
     });
   }
 

@@ -1,18 +1,18 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Thu, 06 Jul 2023 12:11:52 GMT
+ * Last updated on: Thu, 06 Jul 2023 15:52:27 GMT
  */
 
 import { MongoDB } from '@alien-worlds/storage-mongodb';
 
-import { AccountsMongoModel } from './accounts.dto';
-import { MembersMongoModel } from './members.dto';
-import { MembertermsMongoModel } from './memberterms.dto';
-import { StakeconfigMongoModel } from './stakeconfig.dto';
-import { StakesMongoModel } from './stakes.dto';
-import { StaketimeMongoModel } from './staketime.dto';
-import { StatMongoModel } from './stat.dto';
-import { UnstakesMongoModel } from './unstakes.dto';
+import { AccountsMongoModel, AccountsRawModel } from './accounts.dto';
+import { MembersMongoModel, MembersRawModel } from './members.dto';
+import { MembertermsMongoModel, MembertermsRawModel } from './memberterms.dto';
+import { StakeconfigMongoModel, StakeconfigRawModel } from './stakeconfig.dto';
+import { StakesMongoModel, StakesRawModel } from './stakes.dto';
+import { StaketimeMongoModel, StaketimeRawModel } from './staketime.dto';
+import { StatMongoModel, StatRawModel } from './stat.dto';
+import { UnstakesMongoModel, UnstakesRawModel } from './unstakes.dto';
 
 export type DataDocumentType =
   | AccountsMongoModel
@@ -23,6 +23,16 @@ export type DataDocumentType =
   | StaketimeMongoModel
   | StatMongoModel
   | UnstakesMongoModel;
+
+export type DataRawType =
+  | AccountsRawModel
+  | MembersRawModel
+  | MembertermsRawModel
+  | StakeconfigRawModel
+  | StakesRawModel
+  | StaketimeRawModel
+  | StatRawModel
+  | UnstakesRawModel;
 
 
 export type TokenWorldsDeltaMongoModel = {
@@ -37,4 +47,16 @@ export type TokenWorldsDeltaMongoModel = {
   primary_key?: MongoDB.Long,
   present?: boolean;
   block_timestamp?: Date;
+};
+
+export type TokenWorldsDeltaRawModel = {
+  block_timestamp: Date;
+  block_number: string;
+  code: string;
+  scope: string;
+  table: string;
+  payer: string;
+  primary_key: string;
+  present: boolean;
+  data: DataRawType;
 };

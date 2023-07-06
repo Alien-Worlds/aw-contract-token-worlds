@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Thu, 06 Jul 2023 12:11:52 GMT
+ * Last updated on: Thu, 06 Jul 2023 15:52:27 GMT
  */
 
 
@@ -17,17 +17,18 @@ import {
 import { ContractDelta, MapperImpl, parseToBigInt } from '@alien-worlds/api-core';
 import { MongoDB } from '@alien-worlds/storage-mongodb';
 import { DataEntityType } from '../../domain/entities/token-worlds-delta';
-import { TokenWorldsDeltaMongoModel } from '../dtos';
+import { TokenWorldsDeltaMongoModel, TokenWorldsDeltaRawModel } from '../dtos';
 import { TokenWorldsTableName } from '../../domain/enums';
-import { AccountsMongoMapper } from "./accounts.mapper";
-import { MembersMongoMapper } from "./members.mapper";
-import { MembertermsMongoMapper } from "./memberterms.mapper";
-import { StakeconfigMongoMapper } from "./stakeconfig.mapper";
-import { StakesMongoMapper } from "./stakes.mapper";
-import { StaketimeMongoMapper } from "./staketime.mapper";
-import { StatMongoMapper } from "./stat.mapper";
-import { UnstakesMongoMapper } from "./unstakes.mapper";
+import { AccountsMongoMapper, AccountsRawMapper } from "./accounts.mapper";
+import { MembersMongoMapper, MembersRawMapper } from "./members.mapper";
+import { MembertermsMongoMapper, MembertermsRawMapper } from "./memberterms.mapper";
+import { StakeconfigMongoMapper, StakeconfigRawMapper } from "./stakeconfig.mapper";
+import { StakesMongoMapper, StakesRawMapper } from "./stakes.mapper";
+import { StaketimeMongoMapper, StaketimeRawMapper } from "./staketime.mapper";
+import { StatMongoMapper, StatRawMapper } from "./stat.mapper";
+import { UnstakesMongoMapper, UnstakesRawMapper } from "./unstakes.mapper";
 
+// Mongo Mapper
 export class TokenWorldsDeltaMongoMapper
   extends MapperImpl<ContractDelta<DataEntityType, TokenWorldsDeltaMongoModel>, TokenWorldsDeltaMongoModel>
 {
@@ -37,28 +38,44 @@ export class TokenWorldsDeltaMongoMapper
     let entityData;
     switch (entity.table) {
       case TokenWorldsTableName.Accounts:
-        entityData = new AccountsMongoMapper().fromEntity(entity.delta as Accounts);
+        entityData = new AccountsMongoMapper().fromEntity(
+          entity.data as Accounts
+        );
         break;
       case TokenWorldsTableName.Members:
-        entityData = new MembersMongoMapper().fromEntity(entity.delta as Members);
+        entityData = new MembersMongoMapper().fromEntity(
+          entity.data as Members
+        );
         break;
       case TokenWorldsTableName.Memberterms:
-        entityData = new MembertermsMongoMapper().fromEntity(entity.delta as Memberterms);
+        entityData = new MembertermsMongoMapper().fromEntity(
+          entity.data as Memberterms
+        );
         break;
       case TokenWorldsTableName.Stakeconfig:
-        entityData = new StakeconfigMongoMapper().fromEntity(entity.delta as Stakeconfig);
+        entityData = new StakeconfigMongoMapper().fromEntity(
+          entity.data as Stakeconfig
+        );
         break;
       case TokenWorldsTableName.Stakes:
-        entityData = new StakesMongoMapper().fromEntity(entity.delta as Stakes);
+        entityData = new StakesMongoMapper().fromEntity(
+          entity.data as Stakes
+        );
         break;
       case TokenWorldsTableName.Staketime:
-        entityData = new StaketimeMongoMapper().fromEntity(entity.delta as Staketime);
+        entityData = new StaketimeMongoMapper().fromEntity(
+          entity.data as Staketime
+        );
         break;
       case TokenWorldsTableName.Stat:
-        entityData = new StatMongoMapper().fromEntity(entity.delta as Stat);
+        entityData = new StatMongoMapper().fromEntity(
+          entity.data as Stat
+        );
         break;
       case TokenWorldsTableName.Unstakes:
-        entityData = new UnstakesMongoMapper().fromEntity(entity.delta as Unstakes);
+        entityData = new UnstakesMongoMapper().fromEntity(
+          entity.data as Unstakes
+        );
         break;
     }
 
@@ -69,7 +86,6 @@ export class TokenWorldsDeltaMongoMapper
       code: entity.code,
       scope: entity.scope,
       table: entity.table,
-      data_hash: entity.deltaHash,
       data: entityData,
       payer: entity.payer,
       primary_key: new MongoDB.Long(entity.primaryKey),
@@ -114,7 +130,6 @@ export class TokenWorldsDeltaMongoMapper
       code,
       scope,
       table,
-      data_hash,
       payer,
       primary_key,
       present,
@@ -127,7 +142,74 @@ export class TokenWorldsDeltaMongoMapper
       code,
       scope,
       table,
-      data_hash,
+      data,
+      payer,
+      parseToBigInt(primary_key),
+      present,
+      block_timestamp
+    );
+  }
+}
+
+// Processor Task Mapper
+export class TokenWorldsDeltaProcessorTaskMapper extends MapperImpl<
+  ContractDelta<DataEntityType, TokenWorldsDeltaRawModel>, 
+    TokenWorldsDeltaRawModel
+> {
+  public fromEntity(
+    entity: ContractDelta<DataEntityType, TokenWorldsDeltaRawModel>
+  ): TokenWorldsDeltaRawModel {
+    throw new Error('method not implemented');
+  }
+
+  public toEntity(
+    rawModel: TokenWorldsDeltaRawModel
+  ): ContractDelta<DataEntityType, TokenWorldsDeltaRawModel> {
+    let data;
+    switch (rawModel.table) {
+      case TokenWorldsTableName.Accounts:
+        data = new AccountsRawMapper().toEntity(rawModel.data);
+        break;
+      case TokenWorldsTableName.Members:
+        data = new MembersRawMapper().toEntity(rawModel.data);
+        break;
+      case TokenWorldsTableName.Memberterms:
+        data = new MembertermsRawMapper().toEntity(rawModel.data);
+        break;
+      case TokenWorldsTableName.Stakeconfig:
+        data = new StakeconfigRawMapper().toEntity(rawModel.data);
+        break;
+      case TokenWorldsTableName.Stakes:
+        data = new StakesRawMapper().toEntity(rawModel.data);
+        break;
+      case TokenWorldsTableName.Staketime:
+        data = new StaketimeRawMapper().toEntity(rawModel.data);
+        break;
+      case TokenWorldsTableName.Stat:
+        data = new StatRawMapper().toEntity(rawModel.data);
+        break;
+      case TokenWorldsTableName.Unstakes:
+        data = new UnstakesRawMapper().toEntity(rawModel.data);
+        break;
+    }
+
+    const {
+      block_number,
+      code,
+      scope,
+      table,
+      payer,
+      primary_key,
+      present,
+      block_timestamp,
+    } = rawModel;
+
+    return new ContractDelta<DataEntityType, TokenWorldsDeltaRawModel>(
+      '',
+      parseToBigInt(block_number),
+      code,
+      scope,
+      table,
       data,
       payer,
       parseToBigInt(primary_key),

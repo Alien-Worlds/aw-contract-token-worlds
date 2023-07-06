@@ -6,7 +6,7 @@ import {
 
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Tue, 04 Jul 2023 13:49:54 GMT
+ * Last updated on: Thu, 06 Jul 2023 12:11:52 GMT
  */
 
 import {
@@ -52,14 +52,18 @@ export class TokenWorldsContractServiceImpl
   public async fetchAccounts(
     options?: GetTableRowsOptions
   ): Promise<Result<AccountsRawModel[], Error>> {
-    return await this.getAll<AccountsRawModel>('balance', {
+    const table_key = 'balance';
+    const tableRowOptions = {
       ...options,
       code: 'token.worlds',
       table: 'accounts',
-      table_key: 'balance',
-    });
-  }
+      table_key,
+    };
 
+    return options?.limit > 0
+      ? await this.getMany<AccountsRawModel>(tableRowOptions)
+      : await this.getAll<AccountsRawModel>(table_key, tableRowOptions);
+  }
   /**
    * A EosSmartContractServiceImpl for the members table.
    *
@@ -69,14 +73,18 @@ export class TokenWorldsContractServiceImpl
   public async fetchMembers(
     options?: GetTableRowsOptions
   ): Promise<Result<MembersRawModel[], Error>> {
-    return await this.getAll<MembersRawModel>('sender', {
+    const table_key = 'sender';
+    const tableRowOptions = {
       ...options,
       code: 'token.worlds',
       table: 'members',
-      table_key: 'sender',
-    });
-  }
+      table_key,
+    };
 
+    return options?.limit > 0
+      ? await this.getMany<MembersRawModel>(tableRowOptions)
+      : await this.getAll<MembersRawModel>(table_key, tableRowOptions);
+  }
   /**
    * A EosSmartContractServiceImpl for the memberterms table.
    *
@@ -86,14 +94,18 @@ export class TokenWorldsContractServiceImpl
   public async fetchMemberterms(
     options?: GetTableRowsOptions
   ): Promise<Result<MembertermsRawModel[], Error>> {
-    return await this.getAll<MembertermsRawModel>('version', {
+    const table_key = 'version';
+    const tableRowOptions = {
       ...options,
       code: 'token.worlds',
       table: 'memberterms',
-      table_key: 'version',
-    });
-  }
+      table_key,
+    };
 
+    return options?.limit > 0
+      ? await this.getMany<MembertermsRawModel>(tableRowOptions)
+      : await this.getAll<MembertermsRawModel>(table_key, tableRowOptions);
+  }
   /**
    * A EosSmartContractServiceImpl for the stakeconfig table.
    *
@@ -103,14 +115,18 @@ export class TokenWorldsContractServiceImpl
   public async fetchStakeconfig(
     options?: GetTableRowsOptions
   ): Promise<Result<StakeconfigRawModel[], Error>> {
-    return await this.getAll<StakeconfigRawModel>('enabled', {
+    const table_key = 'enabled';
+    const tableRowOptions = {
       ...options,
       code: 'token.worlds',
       table: 'stakeconfig',
-      table_key: 'enabled',
-    });
-  }
+      table_key,
+    };
 
+    return options?.limit > 0
+      ? await this.getMany<StakeconfigRawModel>(tableRowOptions)
+      : await this.getAll<StakeconfigRawModel>(table_key, tableRowOptions);
+  }
   /**
    * A EosSmartContractServiceImpl for the stakes table.
    *
@@ -120,14 +136,18 @@ export class TokenWorldsContractServiceImpl
   public async fetchStakes(
     options?: GetTableRowsOptions
   ): Promise<Result<StakesRawModel[], Error>> {
-    return await this.getAll<StakesRawModel>('account', {
+    const table_key = 'account';
+    const tableRowOptions = {
       ...options,
       code: 'token.worlds',
       table: 'stakes',
-      table_key: 'account',
-    });
-  }
+      table_key,
+    };
 
+    return options?.limit > 0
+      ? await this.getMany<StakesRawModel>(tableRowOptions)
+      : await this.getAll<StakesRawModel>(table_key, tableRowOptions);
+  }
   /**
    * A EosSmartContractServiceImpl for the staketime table.
    *
@@ -137,14 +157,18 @@ export class TokenWorldsContractServiceImpl
   public async fetchStaketime(
     options?: GetTableRowsOptions
   ): Promise<Result<StaketimeRawModel[], Error>> {
-    return await this.getAll<StaketimeRawModel>('account', {
+    const table_key = 'account';
+    const tableRowOptions = {
       ...options,
       code: 'token.worlds',
       table: 'staketime',
-      table_key: 'account',
-    });
-  }
+      table_key,
+    };
 
+    return options?.limit > 0
+      ? await this.getMany<StaketimeRawModel>(tableRowOptions)
+      : await this.getAll<StaketimeRawModel>(table_key, tableRowOptions);
+  }
   /**
    * A EosSmartContractServiceImpl for the stat table.
    *
@@ -154,14 +178,18 @@ export class TokenWorldsContractServiceImpl
   public async fetchStat(
     options?: GetTableRowsOptions
   ): Promise<Result<StatRawModel[], Error>> {
-    return await this.getAll<StatRawModel>('issuer', {
+    const table_key = 'issuer';
+    const tableRowOptions = {
       ...options,
       code: 'token.worlds',
       table: 'stat',
-      table_key: 'issuer',
-    });
-  }
+      table_key,
+    };
 
+    return options?.limit > 0
+      ? await this.getMany<StatRawModel>(tableRowOptions)
+      : await this.getAll<StatRawModel>(table_key, tableRowOptions);
+  }
   /**
    * A EosSmartContractServiceImpl for the unstakes table.
    *
@@ -171,11 +199,16 @@ export class TokenWorldsContractServiceImpl
   public async fetchUnstakes(
     options?: GetTableRowsOptions
   ): Promise<Result<UnstakesRawModel[], Error>> {
-    return await this.getAll<UnstakesRawModel>('key', {
+    const table_key = 'key';
+    const tableRowOptions = {
       ...options,
       code: 'token.worlds',
       table: 'unstakes',
-      table_key: 'key',
-    });
+      table_key,
+    };
+
+    return options?.limit > 0
+      ? await this.getMany<UnstakesRawModel>(tableRowOptions)
+      : await this.getAll<UnstakesRawModel>(table_key, tableRowOptions);
   }
 }

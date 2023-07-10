@@ -1,15 +1,9 @@
-import { GetTableRowsOptions, Result } from '@alien-worlds/api-core';
-import {
-  EosRpcSourceImpl,
-  EosSmartContractServiceImpl,
-} from '@alien-worlds/eos';
-
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Thu, 06 Jul 2023 15:52:27 GMT
+ * Last updated on: Mon, 10 Jul 2023 07:20:11 GMT
  */
 
-import {
+import { 
   AccountsRawModel,
   MembersRawModel,
   MembertermsRawModel,
@@ -19,22 +13,28 @@ import {
   StatRawModel,
   UnstakesRawModel,
 } from '../deltas/data/dtos';
+import { 
+  EosRpcSourceImpl,
+  EosSmartContractServiceImpl,
+} from '@alien-worlds/eos';
+
 import { TokenWorldsContractService } from './token-worlds-contract.service';
+import { GetTableRowsOptions, Result } from '@alien-worlds/api-core';
 
 /**
  * A service class for interacting with the token.worlds smart contract.
- *
+ * 
  * @class TokenWorldsContractServiceImpl
  * @extends {EosSmartContractServiceImpl}
  * @implements { TokenWorldsContractService}
- */
+*/
 export class TokenWorldsContractServiceImpl
   extends EosSmartContractServiceImpl
-  implements TokenWorldsContractService
+  implements TokenWorldsContractService 
 {
   /**
    * Creates an instance of TokenWorldsContractServiceImpl.
-   *
+   * 
    * @constructor
    * @param {EosRpcSourceImpl} eosRpcSourceImpl - The EOS RPC source to use for interactions.
    * @param {string} serviceUrl - Service Url
@@ -45,11 +45,11 @@ export class TokenWorldsContractServiceImpl
 
   /**
    * A EosSmartContractServiceImpl for the accounts table.
-   *
+   * 
    * @type {EosSmartContractServiceImpl}
-   * @param {GetTableRowsOptions} options
+   * @param {GetTableRowsOptions} options 
    */
-  public async fetchAccounts(
+  public async fetchAccounts (
     options?: GetTableRowsOptions
   ): Promise<Result<AccountsRawModel[], Error>> {
     const table_key = 'balance';
@@ -66,11 +66,11 @@ export class TokenWorldsContractServiceImpl
   }
   /**
    * A EosSmartContractServiceImpl for the members table.
-   *
+   * 
    * @type {EosSmartContractServiceImpl}
-   * @param {GetTableRowsOptions} options
+   * @param {GetTableRowsOptions} options 
    */
-  public async fetchMembers(
+  public async fetchMembers (
     options?: GetTableRowsOptions
   ): Promise<Result<MembersRawModel[], Error>> {
     const table_key = 'sender';
@@ -87,14 +87,14 @@ export class TokenWorldsContractServiceImpl
   }
   /**
    * A EosSmartContractServiceImpl for the memberterms table.
-   *
+   * 
    * @type {EosSmartContractServiceImpl}
-   * @param {GetTableRowsOptions} options
+   * @param {GetTableRowsOptions} options 
    */
-  public async fetchMemberterms(
+  public async fetchMemberterms (
     options?: GetTableRowsOptions
   ): Promise<Result<MembertermsRawModel[], Error>> {
-    const table_key = 'version';
+    const table_key = 'terms';
     const tableRowOptions = {
       ...options,
       code: 'token.worlds',
@@ -108,11 +108,11 @@ export class TokenWorldsContractServiceImpl
   }
   /**
    * A EosSmartContractServiceImpl for the stakeconfig table.
-   *
+   * 
    * @type {EosSmartContractServiceImpl}
-   * @param {GetTableRowsOptions} options
+   * @param {GetTableRowsOptions} options 
    */
-  public async fetchStakeconfig(
+  public async fetchStakeconfig (
     options?: GetTableRowsOptions
   ): Promise<Result<StakeconfigRawModel[], Error>> {
     const table_key = 'enabled';
@@ -129,11 +129,11 @@ export class TokenWorldsContractServiceImpl
   }
   /**
    * A EosSmartContractServiceImpl for the stakes table.
-   *
+   * 
    * @type {EosSmartContractServiceImpl}
-   * @param {GetTableRowsOptions} options
+   * @param {GetTableRowsOptions} options 
    */
-  public async fetchStakes(
+  public async fetchStakes (
     options?: GetTableRowsOptions
   ): Promise<Result<StakesRawModel[], Error>> {
     const table_key = 'account';
@@ -150,11 +150,11 @@ export class TokenWorldsContractServiceImpl
   }
   /**
    * A EosSmartContractServiceImpl for the staketime table.
-   *
+   * 
    * @type {EosSmartContractServiceImpl}
-   * @param {GetTableRowsOptions} options
+   * @param {GetTableRowsOptions} options 
    */
-  public async fetchStaketime(
+  public async fetchStaketime (
     options?: GetTableRowsOptions
   ): Promise<Result<StaketimeRawModel[], Error>> {
     const table_key = 'account';
@@ -171,14 +171,14 @@ export class TokenWorldsContractServiceImpl
   }
   /**
    * A EosSmartContractServiceImpl for the stat table.
-   *
+   * 
    * @type {EosSmartContractServiceImpl}
-   * @param {GetTableRowsOptions} options
+   * @param {GetTableRowsOptions} options 
    */
-  public async fetchStat(
+  public async fetchStat (
     options?: GetTableRowsOptions
   ): Promise<Result<StatRawModel[], Error>> {
-    const table_key = 'issuer';
+    const table_key = 'supply';
     const tableRowOptions = {
       ...options,
       code: 'token.worlds',
@@ -192,11 +192,11 @@ export class TokenWorldsContractServiceImpl
   }
   /**
    * A EosSmartContractServiceImpl for the unstakes table.
-   *
+   * 
    * @type {EosSmartContractServiceImpl}
-   * @param {GetTableRowsOptions} options
+   * @param {GetTableRowsOptions} options 
    */
-  public async fetchUnstakes(
+  public async fetchUnstakes (
     options?: GetTableRowsOptions
   ): Promise<Result<UnstakesRawModel[], Error>> {
     const table_key = 'key';

@@ -1,10 +1,14 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Thu, 06 Jul 2023 15:52:27 GMT
+ * Last updated on: Mon, 10 Jul 2023 07:20:11 GMT
  */
 
 import { Container, RepositoryImpl } from '@alien-worlds/api-core';
-import { MongoConfig, MongoSource } from '@alien-worlds/storage-mongodb';
+import { 
+  MongoConfig,
+  MongoQueryBuilders, 
+  MongoSource,
+} from '@alien-worlds/storage-mongodb';
 
 import { TokenWorldsActionMongoMapper } from './actions/data/mappers';
 import { TokenWorldsActionMongoSource } from './actions/data/data-sources';
@@ -26,10 +30,13 @@ export const setupTokenWorldsActionRepository = async (
   } else {
     mongoSource = await MongoSource.create(mongo);
   }
+
+  const mapper = new TokenWorldsActionMongoMapper();
+  
   const repository = new RepositoryImpl(
     new TokenWorldsActionMongoSource(mongoSource),
-    new TokenWorldsActionMongoMapper(),
-    null
+    mapper,
+    new MongoQueryBuilders(mapper)
   );
 
   if (container) {
@@ -51,10 +58,13 @@ export const setupTokenWorldsDeltaRepository = async (
   } else {
     mongoSource = await MongoSource.create(mongo);
   }
+
+  const mapper = new TokenWorldsDeltaMongoMapper();
+  
   const repository = new RepositoryImpl(
     new TokenWorldsDeltaMongoSource(mongoSource),
-    new TokenWorldsDeltaMongoMapper(),
-    null
+    mapper,
+    new MongoQueryBuilders(mapper)
   );
 
   if (container) {

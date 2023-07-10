@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Thu, 06 Jul 2023 15:52:27 GMT
+ * Last updated on: Mon, 10 Jul 2023 07:20:11 GMT
  */
 
 
@@ -30,10 +30,10 @@ import { UnstakesMongoMapper, UnstakesRawMapper } from "./unstakes.mapper";
 
 // Mongo Mapper
 export class TokenWorldsDeltaMongoMapper
-  extends MapperImpl<ContractDelta<DataEntityType, TokenWorldsDeltaMongoModel>, TokenWorldsDeltaMongoModel>
+  extends MapperImpl<ContractDelta<DataEntityType>, TokenWorldsDeltaMongoModel>
 {
   public fromEntity(
-    entity: ContractDelta<DataEntityType, TokenWorldsDeltaMongoModel>
+    entity: ContractDelta<DataEntityType>
   ): TokenWorldsDeltaMongoModel {
     let entityData;
     switch (entity.table) {
@@ -95,7 +95,7 @@ export class TokenWorldsDeltaMongoMapper
 
   public toEntity(
     mongoModel: TokenWorldsDeltaMongoModel
-  ): ContractDelta<DataEntityType, TokenWorldsDeltaMongoModel> {
+  ): ContractDelta<DataEntityType> {
     let data;
     switch (mongoModel.table) {
       case TokenWorldsTableName.Accounts:
@@ -136,7 +136,7 @@ export class TokenWorldsDeltaMongoMapper
       block_timestamp,
     } = mongoModel;
 
-    return new ContractDelta<DataEntityType, TokenWorldsDeltaMongoModel>(
+    return new ContractDelta<DataEntityType>(
       _id.toString(),
       parseToBigInt(block_number),
       code,

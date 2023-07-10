@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Thu, 06 Jul 2023 15:52:27 GMT
+ * Last updated on: Mon, 10 Jul 2023 07:20:11 GMT
  */
 
 
@@ -82,10 +82,10 @@ import { TokenWorldsActionName } from '../../domain/enums';
 
 // Mongo Mapper
 export class TokenWorldsActionMongoMapper
-  extends MapperImpl<ContractAction<DataEntityType, TokenWorldsActionMongoModel>, TokenWorldsActionMongoModel>
+  extends MapperImpl<ContractAction<DataEntityType>, TokenWorldsActionMongoModel>
 {
   public fromEntity(
-    entity: ContractAction<DataEntityType, TokenWorldsActionMongoModel>
+    entity: ContractAction<DataEntityType>
   ): TokenWorldsActionMongoModel {
     let entityData;
     switch (entity.name) {
@@ -183,7 +183,7 @@ export class TokenWorldsActionMongoMapper
 
   public toEntity(
     mongoModel: TokenWorldsActionMongoModel
-  ): ContractAction<DataEntityType, TokenWorldsActionMongoModel> {
+  ): ContractAction<DataEntityType> {
     let data;
     switch (mongoModel.action.name) {
       case TokenWorldsActionName.Burn:
@@ -273,7 +273,7 @@ export class TokenWorldsActionMongoMapper
       action,
     } = mongoModel;
 
-    return new ContractAction<DataEntityType, TokenWorldsActionMongoModel>(
+    return new ContractAction<DataEntityType>(
       _id.toString(),
       block_timestamp,
       parseToBigInt(block_number),

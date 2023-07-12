@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 07:20:11 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
  */
 
 import { 
@@ -94,7 +94,7 @@ export class TokenWorldsContractServiceImpl
   public async fetchMemberterms (
     options?: GetTableRowsOptions
   ): Promise<Result<MembertermsRawModel[], Error>> {
-    const table_key = 'terms';
+    const table_key = 'version';
     const tableRowOptions = {
       ...options,
       code: 'token.worlds',
@@ -178,7 +178,7 @@ export class TokenWorldsContractServiceImpl
   public async fetchStat (
     options?: GetTableRowsOptions
   ): Promise<Result<StatRawModel[], Error>> {
-    const table_key = 'supply';
+    const table_key = 'issuer';
     const tableRowOptions = {
       ...options,
       code: 'token.worlds',

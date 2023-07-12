@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 07:20:11 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -48,6 +48,8 @@ export class Stakeconfig implements Entity {
    *
    * @static
    * @public
+   * @param StakeConfig config
+   * @param Symbol tokenSymbol
    * @returns `Stakeconfig` An instance of the `Stakeconfig` class.
    */
   public static create(
@@ -119,6 +121,9 @@ export class StakeConfig implements Entity {
    *
    * @static
    * @public
+   * @param boolean enabled
+   * @param number minStakeTime
+   * @param number maxStakeTime
    * @returns `StakeConfig` An instance of the `StakeConfig` class.
    */
   public static create(

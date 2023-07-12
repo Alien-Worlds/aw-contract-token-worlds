@@ -1,12 +1,9 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 07:20:11 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
  */
 
-import {
-  MapperImpl,
-  parseToBigInt,
-} from '@alien-worlds/api-core';
+import { MapperImpl } from '@alien-worlds/api-core';
 import { MongoDB } from '@alien-worlds/storage-mongodb';
 import { Memberunreg  } from "../../domain/entities";
 import { MemberunregMongoModel, MemberunregRawModel  } from "../dtos/memberunreg.dto";
@@ -20,14 +17,12 @@ export class MemberunregMongoMapper
 
     this.mappingFromEntity.set('sender', { 
       key: 'sender', 
-      mapper: (value: string) => 
-        value,
+      mapper: (value: string) => value,
     });
 
     this.mappingFromEntity.set('dacId', { 
       key: 'dac_id', 
-      mapper: (value: string) => 
-        value,
+      mapper: (value: string) => value,
     });
 
   }
@@ -41,8 +36,8 @@ export class MemberunregMongoMapper
     } = mongoModel;
 
     return Memberunreg.create(
-        sender ?? '',
-        dac_id ?? '',
+      sender || '',
+      dac_id || '',
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -66,8 +61,8 @@ export class MemberunregRawMapper
     } = rawModel;
 
     return Memberunreg.create(
-        sender ?? '',
-        dac_id ?? '',
+      sender || '',
+      dac_id || '',
       undefined,
       rest
     );

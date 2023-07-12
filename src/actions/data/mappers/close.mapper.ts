@@ -1,12 +1,9 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 07:20:11 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
  */
 
-import {
-  MapperImpl,
-  parseToBigInt,
-} from '@alien-worlds/api-core';
+import { MapperImpl } from '@alien-worlds/api-core';
 import { MongoDB } from '@alien-worlds/storage-mongodb';
 import { Symbol, SymbolMongoMapper, SymbolRawMapper } from '@alien-worlds/eosio-contract-types';
 import { Close  } from "../../domain/entities";
@@ -21,14 +18,12 @@ export class CloseMongoMapper
 
     this.mappingFromEntity.set('owner', { 
       key: 'owner', 
-      mapper: (value: string) => 
-        value,
+      mapper: (value: string) => value,
     });
 
     this.mappingFromEntity.set('symbol', { 
       key: 'symbol', 
-      mapper: (value: Symbol) => 
-           new SymbolMongoMapper().fromEntity(value)
+      mapper: (value: Symbol) => new SymbolMongoMapper().fromEntity(value),
     });
 
   }
@@ -42,10 +37,8 @@ export class CloseMongoMapper
     } = mongoModel;
 
     return Close.create(
-        owner ?? '',
-        symbol 
-          ? new SymbolMongoMapper().toEntity(symbol)
-          : Symbol.getDefault(),
+      owner || '',
+      new SymbolMongoMapper().toEntity(symbol),
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -69,10 +62,8 @@ export class CloseRawMapper
     } = rawModel;
 
     return Close.create(
-        owner ?? '',
-        symbol 
-          ? new SymbolRawMapper().toEntity(symbol)
-          : Symbol.getDefault(),
+      owner || '',
+      new SymbolRawMapper().toEntity(symbol),
       undefined,
       rest
     );

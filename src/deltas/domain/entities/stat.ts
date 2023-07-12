@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 07:20:11 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -54,6 +54,10 @@ export class Stat implements Entity {
    *
    * @static
    * @public
+   * @param Asset supply
+   * @param Asset maxSupply
+   * @param string issuer
+   * @param boolean transferLocked
    * @returns `Stat` An instance of the `Stat` class.
    */
   public static create(

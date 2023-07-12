@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 07:20:11 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -18,14 +18,14 @@ export class Memberterms implements Entity {
    * @constructor
    * @param string terms
    * @param string hash
-   * @param bigint version
+   * @param number version
    * @param string [id]
    * @returns `Memberterms` - An instance of the `Memberterms` class.
    */
   public constructor(
     public terms: string,
     public hash: string,
-    public version: bigint,
+    public version: number,
     public id?: string,
   ) {}
 
@@ -50,12 +50,15 @@ export class Memberterms implements Entity {
    *
    * @static
    * @public
+   * @param string terms
+   * @param string hash
+   * @param number version
    * @returns `Memberterms` An instance of the `Memberterms` class.
    */
   public static create(
     terms: string,
     hash: string,
-    version: bigint,
+    version: number,
     id?: string,
     rest?: UnknownObject
   ): Memberterms {
@@ -74,7 +77,7 @@ export class Memberterms implements Entity {
     return new Memberterms(
       '',
       '',
-      0n,
+      0,
     );
   }
 }

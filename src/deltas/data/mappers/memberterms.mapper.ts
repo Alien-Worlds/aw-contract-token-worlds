@@ -1,12 +1,9 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 07:20:11 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
  */
 
-import {
-  MapperImpl,
-  parseToBigInt,
-} from '@alien-worlds/api-core';
+import { MapperImpl } from '@alien-worlds/api-core';
 import { MongoDB } from '@alien-worlds/storage-mongodb';
 import { Memberterms  } from "../../domain/entities";
 import { MembertermsMongoModel, MembertermsRawModel  } from "../dtos/memberterms.dto";
@@ -20,19 +17,17 @@ export class MembertermsMongoMapper
 
     this.mappingFromEntity.set('terms', { 
       key: 'terms', 
-      mapper: (value: string) => 
-        value,
+      mapper: (value: string) => value,
     });
 
     this.mappingFromEntity.set('hash', { 
       key: 'hash', 
-      mapper: (value: string) => 
-        value,
+      mapper: (value: string) => value,
     });
 
     this.mappingFromEntity.set('version', { 
       key: 'version', 
-      mapper: (value: bigint) => MongoDB.Long.fromBigInt(value),
+      mapper: (value: number) => value,
     });
 
   }
@@ -47,9 +42,9 @@ export class MembertermsMongoMapper
     } = mongoModel;
 
     return Memberterms.create(
-        terms ?? '',
-        hash ?? '',
-        version.toBigInt() ?? 0n,
+      terms || '',
+      hash || '',
+      version || 0,
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -74,9 +69,9 @@ export class MembertermsRawMapper
     } = rawModel;
 
     return Memberterms.create(
-        terms ?? '',
-        hash ?? '',
-      parseToBigInt(version ?? 0n),
+      terms || '',
+      hash || '',
+      version || 0,
       undefined,
       rest
     );

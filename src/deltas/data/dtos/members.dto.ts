@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 07:20:11 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
  */
 
 import { MongoDB } from '@alien-worlds/storage-mongodb';
@@ -15,7 +15,7 @@ import { MongoDB } from '@alien-worlds/storage-mongodb';
 export type MembersMongoModel = {
   _id?: MongoDB.ObjectId;
   sender?: string;
-  agreedtermsversion?: MongoDB.Long;
+  agreedtermsversion?: number;
   [key: string]: unknown;
 };
 
@@ -28,7 +28,7 @@ export type MembersMongoModel = {
  */
 export type MembersRawModel = {
   sender?: string;
-  agreedtermsversion?: bigint;
+  agreedtermsversion?: number;
   [key: string]: unknown;
 };
 

@@ -1,12 +1,9 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 07:20:11 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
  */
 
-import {
-  MapperImpl,
-  parseToBigInt,
-} from '@alien-worlds/api-core';
+import { MapperImpl } from '@alien-worlds/api-core';
 import { MongoDB } from '@alien-worlds/storage-mongodb';
 import { Asset, AssetMongoMapper, AssetRawMapper } from '@alien-worlds/eosio-contract-types';
 import { Issue  } from "../../domain/entities";
@@ -21,20 +18,17 @@ export class IssueMongoMapper
 
     this.mappingFromEntity.set('to', { 
       key: 'to', 
-      mapper: (value: string) => 
-        value,
+      mapper: (value: string) => value,
     });
 
     this.mappingFromEntity.set('quantity', { 
       key: 'quantity', 
-      mapper: (value: Asset) => 
-           new AssetMongoMapper().fromEntity(value)
+      mapper: (value: Asset) => new AssetMongoMapper().fromEntity(value),
     });
 
     this.mappingFromEntity.set('memo', { 
       key: 'memo', 
-      mapper: (value: string) => 
-        value,
+      mapper: (value: string) => value,
     });
 
   }
@@ -49,11 +43,9 @@ export class IssueMongoMapper
     } = mongoModel;
 
     return Issue.create(
-        to ?? '',
-        quantity 
-          ? new AssetMongoMapper().toEntity(quantity)
-          : Asset.getDefault(),
-        memo ?? '',
+      to || '',
+      new AssetMongoMapper().toEntity(quantity),
+      memo || '',
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -78,11 +70,9 @@ export class IssueRawMapper
     } = rawModel;
 
     return Issue.create(
-        to ?? '',
-        quantity 
-          ? new AssetRawMapper().toEntity(quantity)
-          : Asset.getDefault(),
-        memo ?? '',
+      to || '',
+      new AssetRawMapper().toEntity(quantity),
+      memo || '',
       undefined,
       rest
     );

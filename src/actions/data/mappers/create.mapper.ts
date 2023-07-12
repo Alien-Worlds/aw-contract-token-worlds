@@ -1,12 +1,9 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 07:20:11 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
  */
 
-import {
-  MapperImpl,
-  parseToBigInt,
-} from '@alien-worlds/api-core';
+import { MapperImpl } from '@alien-worlds/api-core';
 import { MongoDB } from '@alien-worlds/storage-mongodb';
 import { Asset, AssetMongoMapper, AssetRawMapper } from '@alien-worlds/eosio-contract-types';
 import { Create  } from "../../domain/entities";
@@ -21,20 +18,17 @@ export class CreateMongoMapper
 
     this.mappingFromEntity.set('issuer', { 
       key: 'issuer', 
-      mapper: (value: string) => 
-        value,
+      mapper: (value: string) => value,
     });
 
     this.mappingFromEntity.set('maximumSupply', { 
       key: 'maximum_supply', 
-      mapper: (value: Asset) => 
-           new AssetMongoMapper().fromEntity(value)
+      mapper: (value: Asset) => new AssetMongoMapper().fromEntity(value),
     });
 
     this.mappingFromEntity.set('transferLocked', { 
       key: 'transfer_locked', 
-      mapper: (value: boolean) => 
-        value,
+      mapper: (value: boolean) => value,
     });
 
   }
@@ -49,11 +43,9 @@ export class CreateMongoMapper
     } = mongoModel;
 
     return Create.create(
-        issuer ?? '',
-        maximum_supply 
-          ? new AssetMongoMapper().toEntity(maximum_supply)
-          : Asset.getDefault(),
-        transfer_locked ?? false,
+      issuer || '',
+      new AssetMongoMapper().toEntity(maximum_supply),
+      transfer_locked || false,
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -78,11 +70,9 @@ export class CreateRawMapper
     } = rawModel;
 
     return Create.create(
-        issuer ?? '',
-        maximum_supply 
-          ? new AssetRawMapper().toEntity(maximum_supply)
-          : Asset.getDefault(),
-        transfer_locked ?? false,
+      issuer || '',
+      new AssetRawMapper().toEntity(maximum_supply),
+      transfer_locked || false,
       undefined,
       rest
     );

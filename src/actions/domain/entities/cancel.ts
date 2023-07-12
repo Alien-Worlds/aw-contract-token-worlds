@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 07:20:11 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -17,13 +17,13 @@ export class Cancel implements Entity {
    *
    * @public
    * @constructor
-   * @param bigint unstakeId
+   * @param number unstakeId
    * @param Symbol tokenSymbol
    * @param string [id]
    * @returns `Cancel` - An instance of the `Cancel` class.
    */
   public constructor(
-    public unstakeId: bigint,
+    public unstakeId: number,
     public tokenSymbol: Symbol,
     public id?: string,
   ) {}
@@ -48,10 +48,12 @@ export class Cancel implements Entity {
    *
    * @static
    * @public
+   * @param number unstakeId
+   * @param Symbol tokenSymbol
    * @returns `Cancel` An instance of the `Cancel` class.
    */
   public static create(
-    unstakeId: bigint,
+    unstakeId: number,
     tokenSymbol: Symbol,
     id?: string,
     rest?: UnknownObject
@@ -68,7 +70,7 @@ export class Cancel implements Entity {
 
   public static getDefault(): Cancel {
     return new Cancel(
-      0n,
+      0,
       Symbol.getDefault(),
     );
   }

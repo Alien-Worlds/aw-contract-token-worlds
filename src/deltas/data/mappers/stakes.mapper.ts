@@ -1,12 +1,9 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 07:20:11 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
  */
 
-import {
-  MapperImpl,
-  parseToBigInt,
-} from '@alien-worlds/api-core';
+import { MapperImpl } from '@alien-worlds/api-core';
 import { MongoDB } from '@alien-worlds/storage-mongodb';
 import { Asset, AssetMongoMapper, AssetRawMapper } from '@alien-worlds/eosio-contract-types';
 import { Stakes  } from "../../domain/entities";
@@ -21,14 +18,12 @@ export class StakesMongoMapper
 
     this.mappingFromEntity.set('account', { 
       key: 'account', 
-      mapper: (value: string) => 
-        value,
+      mapper: (value: string) => value,
     });
 
     this.mappingFromEntity.set('stake', { 
       key: 'stake', 
-      mapper: (value: Asset) => 
-           new AssetMongoMapper().fromEntity(value)
+      mapper: (value: Asset) => new AssetMongoMapper().fromEntity(value),
     });
 
   }
@@ -42,10 +37,8 @@ export class StakesMongoMapper
     } = mongoModel;
 
     return Stakes.create(
-        account ?? '',
-        stake 
-          ? new AssetMongoMapper().toEntity(stake)
-          : Asset.getDefault(),
+      account || '',
+      new AssetMongoMapper().toEntity(stake),
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -69,10 +62,8 @@ export class StakesRawMapper
     } = rawModel;
 
     return Stakes.create(
-        account ?? '',
-        stake 
-          ? new AssetRawMapper().toEntity(stake)
-          : Asset.getDefault(),
+      account || '',
+      new AssetRawMapper().toEntity(stake),
       undefined,
       rest
     );

@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 07:20:11 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
  */
 
 import { MongoDB } from '@alien-worlds/storage-mongodb';
@@ -15,7 +15,7 @@ import { SymbolMongoModel, SymbolRawModel } from '@alien-worlds/eosio-contract-t
  */
 export type CancelMongoModel = {
   _id?: MongoDB.ObjectId;
-  unstake_id?: MongoDB.Long;
+  unstake_id?: number;
   token_symbol?: SymbolMongoModel;
   [key: string]: unknown;
 };
@@ -28,7 +28,7 @@ export type CancelMongoModel = {
  * @typedef {Object} CancelRawModel
  */
 export type CancelRawModel = {
-  unstake_id?: bigint;
+  unstake_id?: number;
   token_symbol?: SymbolRawModel;
   [key: string]: unknown;
 };

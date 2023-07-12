@@ -1,12 +1,9 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 07:20:11 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
  */
 
-import {
-  MapperImpl,
-  parseToBigInt,
-} from '@alien-worlds/api-core';
+import { MapperImpl } from '@alien-worlds/api-core';
 import { MongoDB } from '@alien-worlds/storage-mongodb';
 import { Asset, AssetMongoMapper, AssetRawMapper } from '@alien-worlds/eosio-contract-types';
 import { Unlock  } from "../../domain/entities";
@@ -21,8 +18,7 @@ export class UnlockMongoMapper
 
     this.mappingFromEntity.set('unlock', { 
       key: 'unlock', 
-      mapper: (value: Asset) => 
-           new AssetMongoMapper().fromEntity(value)
+      mapper: (value: Asset) => new AssetMongoMapper().fromEntity(value),
     });
 
   }
@@ -35,9 +31,7 @@ export class UnlockMongoMapper
     } = mongoModel;
 
     return Unlock.create(
-        unlock 
-          ? new AssetMongoMapper().toEntity(unlock)
-          : Asset.getDefault(),
+      new AssetMongoMapper().toEntity(unlock),
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -60,9 +54,7 @@ export class UnlockRawMapper
     } = rawModel;
 
     return Unlock.create(
-        unlock 
-          ? new AssetRawMapper().toEntity(unlock)
-          : Asset.getDefault(),
+      new AssetRawMapper().toEntity(unlock),
       undefined,
       rest
     );

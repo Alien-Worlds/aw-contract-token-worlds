@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 07:20:11 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -17,7 +17,7 @@ export class Unstakes implements Entity {
    *
    * @public
    * @constructor
-   * @param bigint key
+   * @param number key
    * @param string account
    * @param Asset stake
    * @param Date releaseTime
@@ -25,7 +25,7 @@ export class Unstakes implements Entity {
    * @returns `Unstakes` - An instance of the `Unstakes` class.
    */
   public constructor(
-    public key: bigint,
+    public key: number,
     public account: string,
     public stake: Asset,
     public releaseTime: Date,
@@ -54,10 +54,14 @@ export class Unstakes implements Entity {
    *
    * @static
    * @public
+   * @param number key
+   * @param string account
+   * @param Asset stake
+   * @param Date releaseTime
    * @returns `Unstakes` An instance of the `Unstakes` class.
    */
   public static create(
-    key: bigint,
+    key: number,
     account: string,
     stake: Asset,
     releaseTime: Date,
@@ -78,7 +82,7 @@ export class Unstakes implements Entity {
 
   public static getDefault(): Unstakes {
     return new Unstakes(
-      0n,
+      0,
       '',
       Asset.getDefault(),
       new Date(0),

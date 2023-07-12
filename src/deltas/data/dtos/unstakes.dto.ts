@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 07:20:11 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
  */
 
 import { MongoDB } from '@alien-worlds/storage-mongodb';
@@ -15,7 +15,7 @@ import { AssetMongoModel, AssetRawModel } from '@alien-worlds/eosio-contract-typ
  */
 export type UnstakesMongoModel = {
   _id?: MongoDB.ObjectId;
-  key?: MongoDB.Long;
+  key?: number;
   account?: string;
   stake?: AssetMongoModel;
   release_time?: Date;
@@ -30,7 +30,7 @@ export type UnstakesMongoModel = {
  * @typedef {Object} UnstakesRawModel
  */
 export type UnstakesRawModel = {
-  key?: bigint;
+  key?: number;
   account?: string;
   stake?: AssetRawModel;
   release_time?: Date;

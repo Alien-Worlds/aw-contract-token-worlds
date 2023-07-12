@@ -1,12 +1,9 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 07:20:11 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
  */
 
-import {
-  MapperImpl,
-  parseToBigInt,
-} from '@alien-worlds/api-core';
+import { MapperImpl } from '@alien-worlds/api-core';
 import { MongoDB } from '@alien-worlds/storage-mongodb';
 import { Symbol, SymbolMongoMapper, SymbolRawMapper } from '@alien-worlds/eosio-contract-types';
 import { Stakeconfig,  StakeConfig  } from "../../domain/entities";
@@ -21,12 +18,12 @@ export class StakeconfigMongoMapper
 
     this.mappingFromEntity.set('config', { 
       key: 'config', 
-      mapper:          new StakeConfigMongoMapper().fromEntity,    });
+      mapper: (value: StakeConfig) => new StakeConfigMongoMapper().fromEntity(value),
+    });
 
     this.mappingFromEntity.set('tokenSymbol', { 
       key: 'token_symbol', 
-      mapper: (value: Symbol) => 
-           new SymbolMongoMapper().fromEntity(value)
+      mapper: (value: Symbol) => new SymbolMongoMapper().fromEntity(value),
     });
 
   }
@@ -40,12 +37,8 @@ export class StakeconfigMongoMapper
     } = mongoModel;
 
     return Stakeconfig.create(
-        config
-          ? new StakeConfigMongoMapper().toEntity(config)
-          : StakeConfig.getDefault(),
-        token_symbol 
-          ? new SymbolMongoMapper().toEntity(token_symbol)
-          : Symbol.getDefault(),
+      new StakeConfigMongoMapper().toEntity(config),
+      new SymbolMongoMapper().toEntity(token_symbol),
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -60,20 +53,17 @@ export class StakeConfigMongoMapper
 
     this.mappingFromEntity.set('enabled', { 
       key: 'enabled', 
-      mapper: (value: boolean) => 
-        value,
+      mapper: (value: boolean) => value,
     });
 
     this.mappingFromEntity.set('minStakeTime', { 
       key: 'min_stake_time', 
-      mapper: (value: number) => 
-        value,
+      mapper: (value: number) => value,
     });
 
     this.mappingFromEntity.set('maxStakeTime', { 
       key: 'max_stake_time', 
-      mapper: (value: number) => 
-        value,
+      mapper: (value: number) => value,
     });
 
   }
@@ -88,9 +78,9 @@ export class StakeConfigMongoMapper
     } = mongoModel;
 
     return StakeConfig.create(
-        enabled ?? false,
-        min_stake_time ?? 0,
-        max_stake_time ?? 0,
+      enabled || false,
+      min_stake_time || 0,
+      max_stake_time || 0,
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -114,12 +104,8 @@ export class StakeconfigRawMapper
     } = rawModel;
 
     return Stakeconfig.create(
-        config
-          ? new StakeConfigRawMapper().toEntity(config)
-          : StakeConfig.getDefault(),
-        token_symbol 
-          ? new SymbolRawMapper().toEntity(token_symbol)
-          : Symbol.getDefault(),
+      new StakeConfigRawMapper().toEntity(config),
+      new SymbolRawMapper().toEntity(token_symbol),
       undefined,
       rest
     );
@@ -142,9 +128,9 @@ export class StakeConfigRawMapper
     } = rawModel;
 
     return StakeConfig.create(
-        enabled ?? false,
-        min_stake_time ?? 0,
-        max_stake_time ?? 0,
+      enabled || false,
+      min_stake_time || 0,
+      max_stake_time || 0,
       undefined,
       rest
     );

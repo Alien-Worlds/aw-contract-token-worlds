@@ -1,12 +1,9 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 07:20:11 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
  */
 
-import {
-  MapperImpl,
-  parseToBigInt,
-} from '@alien-worlds/api-core';
+import { MapperImpl } from '@alien-worlds/api-core';
 import { MongoDB } from '@alien-worlds/storage-mongodb';
 import { Symbol, SymbolMongoMapper, SymbolRawMapper } from '@alien-worlds/eosio-contract-types';
 import { Staketime  } from "../../domain/entities";
@@ -21,20 +18,17 @@ export class StaketimeMongoMapper
 
     this.mappingFromEntity.set('account', { 
       key: 'account', 
-      mapper: (value: string) => 
-        value,
+      mapper: (value: string) => value,
     });
 
     this.mappingFromEntity.set('unstakeTime', { 
       key: 'unstake_time', 
-      mapper: (value: number) => 
-        value,
+      mapper: (value: number) => value,
     });
 
     this.mappingFromEntity.set('tokenSymbol', { 
       key: 'token_symbol', 
-      mapper: (value: Symbol) => 
-           new SymbolMongoMapper().fromEntity(value)
+      mapper: (value: Symbol) => new SymbolMongoMapper().fromEntity(value),
     });
 
   }
@@ -49,11 +43,9 @@ export class StaketimeMongoMapper
     } = mongoModel;
 
     return Staketime.create(
-        account ?? '',
-        unstake_time ?? 0,
-        token_symbol 
-          ? new SymbolMongoMapper().toEntity(token_symbol)
-          : Symbol.getDefault(),
+      account || '',
+      unstake_time || 0,
+      new SymbolMongoMapper().toEntity(token_symbol),
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -78,11 +70,9 @@ export class StaketimeRawMapper
     } = rawModel;
 
     return Staketime.create(
-        account ?? '',
-        unstake_time ?? 0,
-        token_symbol 
-          ? new SymbolRawMapper().toEntity(token_symbol)
-          : Symbol.getDefault(),
+      account || '',
+      unstake_time || 0,
+      new SymbolRawMapper().toEntity(token_symbol),
       undefined,
       rest
     );

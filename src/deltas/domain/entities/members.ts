@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 07:20:11 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -17,13 +17,13 @@ export class Members implements Entity {
    * @public
    * @constructor
    * @param string sender
-   * @param bigint agreedtermsversion
+   * @param number agreedtermsversion
    * @param string [id]
    * @returns `Members` - An instance of the `Members` class.
    */
   public constructor(
     public sender: string,
-    public agreedtermsversion: bigint,
+    public agreedtermsversion: number,
     public id?: string,
   ) {}
 
@@ -47,11 +47,13 @@ export class Members implements Entity {
    *
    * @static
    * @public
+   * @param string sender
+   * @param number agreedtermsversion
    * @returns `Members` An instance of the `Members` class.
    */
   public static create(
     sender: string,
-    agreedtermsversion: bigint,
+    agreedtermsversion: number,
     id?: string,
     rest?: UnknownObject
   ): Members {
@@ -68,7 +70,7 @@ export class Members implements Entity {
   public static getDefault(): Members {
     return new Members(
       '',
-      0n,
+      0,
     );
   }
 }

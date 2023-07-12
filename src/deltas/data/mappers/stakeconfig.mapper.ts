@@ -1,12 +1,9 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 07:20:11 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
  */
 
-import {
-  MapperImpl,
-  parseToBigInt,
-} from '@alien-worlds/api-core';
+import { MapperImpl } from '@alien-worlds/api-core';
 import { MongoDB } from '@alien-worlds/storage-mongodb';
 import { Stakeconfig  } from "../../domain/entities";
 import { StakeconfigMongoModel, StakeconfigRawModel  } from "../dtos/stakeconfig.dto";
@@ -20,20 +17,17 @@ export class StakeconfigMongoMapper
 
     this.mappingFromEntity.set('enabled', { 
       key: 'enabled', 
-      mapper: (value: boolean) => 
-        value,
+      mapper: (value: boolean) => value,
     });
 
     this.mappingFromEntity.set('minStakeTime', { 
       key: 'min_stake_time', 
-      mapper: (value: number) => 
-        value,
+      mapper: (value: number) => value,
     });
 
     this.mappingFromEntity.set('maxStakeTime', { 
       key: 'max_stake_time', 
-      mapper: (value: number) => 
-        value,
+      mapper: (value: number) => value,
     });
 
   }
@@ -48,9 +42,9 @@ export class StakeconfigMongoMapper
     } = mongoModel;
 
     return Stakeconfig.create(
-        enabled ?? false,
-        min_stake_time ?? 0,
-        max_stake_time ?? 0,
+      enabled || false,
+      min_stake_time || 0,
+      max_stake_time || 0,
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -75,9 +69,9 @@ export class StakeconfigRawMapper
     } = rawModel;
 
     return Stakeconfig.create(
-        enabled ?? false,
-        min_stake_time ?? 0,
-        max_stake_time ?? 0,
+      enabled || false,
+      min_stake_time || 0,
+      max_stake_time || 0,
       undefined,
       rest
     );

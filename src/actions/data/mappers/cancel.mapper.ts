@@ -1,12 +1,9 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 07:20:11 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
  */
 
-import {
-  MapperImpl,
-  parseToBigInt,
-} from '@alien-worlds/api-core';
+import { MapperImpl } from '@alien-worlds/api-core';
 import { MongoDB } from '@alien-worlds/storage-mongodb';
 import { Symbol, SymbolMongoMapper, SymbolRawMapper } from '@alien-worlds/eosio-contract-types';
 import { Cancel  } from "../../domain/entities";
@@ -21,13 +18,12 @@ export class CancelMongoMapper
 
     this.mappingFromEntity.set('unstakeId', { 
       key: 'unstake_id', 
-      mapper: (value: bigint) => MongoDB.Long.fromBigInt(value),
+      mapper: (value: number) => value,
     });
 
     this.mappingFromEntity.set('tokenSymbol', { 
       key: 'token_symbol', 
-      mapper: (value: Symbol) => 
-           new SymbolMongoMapper().fromEntity(value)
+      mapper: (value: Symbol) => new SymbolMongoMapper().fromEntity(value),
     });
 
   }
@@ -41,10 +37,8 @@ export class CancelMongoMapper
     } = mongoModel;
 
     return Cancel.create(
-        unstake_id.toBigInt() ?? 0n,
-        token_symbol 
-          ? new SymbolMongoMapper().toEntity(token_symbol)
-          : Symbol.getDefault(),
+      unstake_id || 0,
+      new SymbolMongoMapper().toEntity(token_symbol),
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -68,10 +62,8 @@ export class CancelRawMapper
     } = rawModel;
 
     return Cancel.create(
-      parseToBigInt(unstake_id ?? 0n),
-        token_symbol 
-          ? new SymbolRawMapper().toEntity(token_symbol)
-          : Symbol.getDefault(),
+      unstake_id || 0,
+      new SymbolRawMapper().toEntity(token_symbol),
       undefined,
       rest
     );

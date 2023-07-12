@@ -1,12 +1,9 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 07:20:11 GMT
+ * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
  */
 
-import {
-  MapperImpl,
-  parseToBigInt,
-} from '@alien-worlds/api-core';
+import { MapperImpl } from '@alien-worlds/api-core';
 import { MongoDB } from '@alien-worlds/storage-mongodb';
 import { Newmemterms  } from "../../domain/entities";
 import { NewmemtermsMongoModel, NewmemtermsRawModel  } from "../dtos/newmemterms.dto";
@@ -20,20 +17,17 @@ export class NewmemtermsMongoMapper
 
     this.mappingFromEntity.set('terms', { 
       key: 'terms', 
-      mapper: (value: string) => 
-        value,
+      mapper: (value: string) => value,
     });
 
     this.mappingFromEntity.set('hash', { 
       key: 'hash', 
-      mapper: (value: string) => 
-        value,
+      mapper: (value: string) => value,
     });
 
     this.mappingFromEntity.set('dacId', { 
       key: 'dac_id', 
-      mapper: (value: string) => 
-        value,
+      mapper: (value: string) => value,
     });
 
   }
@@ -48,9 +42,9 @@ export class NewmemtermsMongoMapper
     } = mongoModel;
 
     return Newmemterms.create(
-        terms ?? '',
-        hash ?? '',
-        dac_id ?? '',
+      terms || '',
+      hash || '',
+      dac_id || '',
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -75,9 +69,9 @@ export class NewmemtermsRawMapper
     } = rawModel;
 
     return Newmemterms.create(
-        terms ?? '',
-        hash ?? '',
-        dac_id ?? '',
+      terms || '',
+      hash || '',
+      dac_id || '',
       undefined,
       rest
     );

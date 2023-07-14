@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Fri, 14 Jul 2023 17:01:20 GMT
+ * Last updated on: Fri, 14 Jul 2023 17:59:47 GMT
  */
 
 
@@ -15,7 +15,7 @@ import {
   Unstakes,
 } from '../../domain/entities';
 import { ContractDelta, MapperImpl, parseToBigInt } from '@alien-worlds/api-core';
-import { MongoDB } from '@alien-worlds/storage-mongodb';
+import { MongoDB, MongoMapper } from '@alien-worlds/storage-mongodb';
 import { DataEntityType } from '../../domain/entities/token-worlds-delta';
 import { TokenWorldsDeltaMongoModel, TokenWorldsDeltaRawModel } from '../dtos';
 import { TokenWorldsTableName } from '../../domain/enums';
@@ -30,7 +30,7 @@ import { UnstakesMongoMapper, UnstakesRawMapper } from "./unstakes.mapper";
 
 // Mongo Mapper
 export class TokenWorldsDeltaMongoMapper
-  extends MapperImpl<ContractDelta<DataEntityType>, TokenWorldsDeltaMongoModel>
+  extends MongoMapper<ContractDelta<DataEntityType>, TokenWorldsDeltaMongoModel>
 {
   public fromEntity(
     entity: ContractDelta<DataEntityType>

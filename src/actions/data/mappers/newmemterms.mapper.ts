@@ -1,16 +1,16 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Fri, 14 Jul 2023 17:01:19 GMT
+ * Last updated on: Fri, 14 Jul 2023 17:59:46 GMT
  */
 
 import { MapperImpl } from '@alien-worlds/api-core';
-import { MongoDB } from '@alien-worlds/storage-mongodb';
+import { MongoDB, MongoMapper } from '@alien-worlds/storage-mongodb';
 import { Newmemterms  } from "../../domain/entities";
 import { NewmemtermsMongoModel, NewmemtermsRawModel  } from "../dtos/newmemterms.dto";
 
 // Mongo Mappers
 export class NewmemtermsMongoMapper
-  extends MapperImpl<Newmemterms, NewmemtermsMongoModel>
+  extends MongoMapper<Newmemterms, NewmemtermsMongoModel>
 {
   constructor() {
     super();

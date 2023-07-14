@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Fri, 14 Jul 2023 17:01:19 GMT
+ * Last updated on: Fri, 14 Jul 2023 17:59:46 GMT
  */
 
 
@@ -42,7 +42,7 @@ import { StaketimeMongoMapper, StaketimeRawMapper } from "./staketime.mapper";
 import { TransferMongoMapper, TransferRawMapper } from "./transfer.mapper";
 import { UnlockMongoMapper, UnlockRawMapper } from "./unlock.mapper";
 import { UnstakeMongoMapper, UnstakeRawMapper } from "./unstake.mapper";
-import { MongoDB } from '@alien-worlds/storage-mongodb';
+import { MongoDB, MongoMapper } from '@alien-worlds/storage-mongodb';
 import { DataEntityType } from '../../domain/entities/token-worlds-action';
 import { 
   TokenWorldsActionMongoModel,
@@ -82,7 +82,7 @@ import { TokenWorldsActionName } from '../../domain/enums';
 
 // Mongo Mapper
 export class TokenWorldsActionMongoMapper
-  extends MapperImpl<ContractAction<DataEntityType>, TokenWorldsActionMongoModel>
+  extends MongoMapper<ContractAction<DataEntityType>, TokenWorldsActionMongoModel>
 {
   public fromEntity(
     entity: ContractAction<DataEntityType>

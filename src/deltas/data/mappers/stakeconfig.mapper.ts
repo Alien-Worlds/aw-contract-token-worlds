@@ -1,16 +1,16 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Fri, 14 Jul 2023 17:01:20 GMT
+ * Last updated on: Fri, 14 Jul 2023 17:59:47 GMT
  */
 
 import { MapperImpl } from '@alien-worlds/api-core';
-import { MongoDB } from '@alien-worlds/storage-mongodb';
+import { MongoDB, MongoMapper } from '@alien-worlds/storage-mongodb';
 import { Stakeconfig  } from "../../domain/entities";
 import { StakeconfigMongoModel, StakeconfigRawModel  } from "../dtos/stakeconfig.dto";
 
 // Mongo Mappers
 export class StakeconfigMongoMapper
-  extends MapperImpl<Stakeconfig, StakeconfigMongoModel>
+  extends MongoMapper<Stakeconfig, StakeconfigMongoModel>
 {
   constructor() {
     super();

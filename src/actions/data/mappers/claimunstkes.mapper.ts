@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
+ * Last updated on: Fri, 14 Jul 2023 17:01:19 GMT
  */
 
 import { MapperImpl } from '@alien-worlds/api-core';
@@ -32,13 +32,13 @@ export class ClaimunstkesMongoMapper
     const { 
       account,
       token_symbol,
-      _id, 
+      _id,
       ...rest
     } = mongoModel;
 
     return Claimunstkes.create(
       account || '',
-      new SymbolMongoMapper().toEntity(token_symbol),
+      token_symbol ? new SymbolMongoMapper().toEntity(token_symbol) : Symbol.getDefault(),
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -63,7 +63,7 @@ export class ClaimunstkesRawMapper
 
     return Claimunstkes.create(
       account || '',
-      new SymbolRawMapper().toEntity(token_symbol),
+      token_symbol ? new SymbolRawMapper().toEntity(token_symbol) : Symbol.getDefault(),
       undefined,
       rest
     );

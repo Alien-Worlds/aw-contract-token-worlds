@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
+ * Last updated on: Fri, 14 Jul 2023 17:01:20 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -61,7 +61,7 @@ export class Stakeconfig implements Entity {
     const entity = new Stakeconfig(
       config,
       tokenSymbol,
-      id
+      id,
     );
     entity.rest = rest;
 
@@ -137,7 +137,7 @@ export class StakeConfig implements Entity {
       enabled,
       minStakeTime,
       maxStakeTime,
-      id
+      id,
     );
     entity.rest = rest;
 

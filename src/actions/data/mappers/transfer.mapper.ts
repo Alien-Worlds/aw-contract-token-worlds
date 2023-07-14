@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
+ * Last updated on: Fri, 14 Jul 2023 17:01:19 GMT
  */
 
 import { MapperImpl } from '@alien-worlds/api-core';
@@ -44,14 +44,14 @@ export class TransferMongoMapper
       to,
       quantity,
       memo,
-      _id, 
+      _id,
       ...rest
     } = mongoModel;
 
     return Transfer.create(
       from || '',
       to || '',
-      new AssetMongoMapper().toEntity(quantity),
+      quantity ? new AssetMongoMapper().toEntity(quantity) : Asset.getDefault(),
       memo || '',
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
@@ -80,7 +80,7 @@ export class TransferRawMapper
     return Transfer.create(
       from || '',
       to || '',
-      new AssetRawMapper().toEntity(quantity),
+      quantity ? new AssetRawMapper().toEntity(quantity) : Asset.getDefault(),
       memo || '',
       undefined,
       rest

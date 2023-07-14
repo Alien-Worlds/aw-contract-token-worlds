@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
+ * Last updated on: Fri, 14 Jul 2023 17:01:20 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -60,7 +60,7 @@ export class Members implements Entity {
     const entity = new Members(
       sender,
       agreedtermsversion,
-      id
+      id,
     );
     entity.rest = rest;
 

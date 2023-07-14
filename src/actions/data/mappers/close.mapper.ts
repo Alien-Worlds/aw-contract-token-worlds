@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
+ * Last updated on: Fri, 14 Jul 2023 17:01:19 GMT
  */
 
 import { MapperImpl } from '@alien-worlds/api-core';
@@ -32,13 +32,13 @@ export class CloseMongoMapper
     const { 
       owner,
       symbol,
-      _id, 
+      _id,
       ...rest
     } = mongoModel;
 
     return Close.create(
       owner || '',
-      new SymbolMongoMapper().toEntity(symbol),
+      symbol ? new SymbolMongoMapper().toEntity(symbol) : Symbol.getDefault(),
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -63,7 +63,7 @@ export class CloseRawMapper
 
     return Close.create(
       owner || '',
-      new SymbolRawMapper().toEntity(symbol),
+      symbol ? new SymbolRawMapper().toEntity(symbol) : Symbol.getDefault(),
       undefined,
       rest
     );

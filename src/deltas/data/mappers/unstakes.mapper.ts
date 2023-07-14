@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
+ * Last updated on: Fri, 14 Jul 2023 17:01:20 GMT
  */
 
 import { MapperImpl } from '@alien-worlds/api-core';
@@ -44,14 +44,14 @@ export class UnstakesMongoMapper
       account,
       stake,
       release_time,
-      _id, 
+      _id,
       ...rest
     } = mongoModel;
 
     return Unstakes.create(
       key || 0,
       account || '',
-      new AssetMongoMapper().toEntity(stake),
+      stake ? new AssetMongoMapper().toEntity(stake) : Asset.getDefault(),
       release_time || new Date(0),
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
@@ -80,7 +80,7 @@ export class UnstakesRawMapper
     return Unstakes.create(
       key || 0,
       account || '',
-      new AssetRawMapper().toEntity(stake),
+      stake ? new AssetRawMapper().toEntity(stake) : Asset.getDefault(),
       release_time || new Date(0),
       undefined,
       rest

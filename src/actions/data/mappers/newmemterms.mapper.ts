@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Wed, 12 Jul 2023 06:31:56 GMT
+ * Last updated on: Fri, 14 Jul 2023 17:01:19 GMT
  */
 
 import { MapperImpl } from '@alien-worlds/api-core';
@@ -37,7 +37,7 @@ export class NewmemtermsMongoMapper
       terms,
       hash,
       dac_id,
-      _id, 
+      _id,
       ...rest
     } = mongoModel;
 

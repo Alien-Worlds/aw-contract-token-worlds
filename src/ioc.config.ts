@@ -1,14 +1,14 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Fri, 14 Jul 2023 19:17:23 GMT
+ * Last updated on: Thu, 27 Jul 2023 12:31:56 GMT
  */
 
-import { Container, RepositoryImpl } from '@alien-worlds/api-core';
+import { Container, RepositoryImpl } from '@alien-worlds/aw-core';
 import { 
   MongoConfig,
   MongoQueryBuilders, 
   MongoSource,
-} from '@alien-worlds/storage-mongodb';
+} from '@alien-worlds/aw-storage-mongodb';
 
 import { TokenWorldsActionMongoMapper } from './actions/data/mappers';
 import { TokenWorldsActionMongoSource } from './actions/data/data-sources';
@@ -18,7 +18,7 @@ import { TokenWorldsContractServiceImpl } from "./services/token-worlds-contract
 import { TokenWorldsDeltaMongoMapper } from './deltas/data/mappers';
 import { TokenWorldsDeltaMongoSource } from './deltas/data/data-sources';
 import { TokenWorldsDeltaRepository } from './deltas/domain/repositories';
-import { EosRpcSourceImpl } from '@alien-worlds/eos';
+import { AntelopeRpcSourceImpl } from '@alien-worlds/aw-antelope';
 
 export const setupTokenWorldsActionRepository = async (
   mongo: MongoSource | MongoConfig,
@@ -77,12 +77,12 @@ export const setupTokenWorldsDeltaRepository = async (
 };
 
 export const setupTokenWorldsContractService = (
-  eosRpcSourceImpl: EosRpcSourceImpl,
+  antelopeRpcSourceImpl: AntelopeRpcSourceImpl,
   serviceUrl: string,
   container?: Container
 ): TokenWorldsContractService => {
   const service = new TokenWorldsContractServiceImpl(
-    eosRpcSourceImpl,
+    antelopeRpcSourceImpl,
     serviceUrl
   );
 

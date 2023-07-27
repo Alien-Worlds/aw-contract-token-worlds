@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Fri, 14 Jul 2023 19:17:23 GMT
+ * Last updated on: Thu, 27 Jul 2023 12:31:56 GMT
  */
 
 import { 
@@ -14,39 +14,39 @@ import {
   UnstakesRawModel,
 } from '../deltas/data/dtos';
 import { 
-  EosRpcSourceImpl,
-  EosSmartContractServiceImpl,
-} from '@alien-worlds/eos';
+  AntelopeRpcSourceImpl,
+  AntelopeSmartContractServiceImpl,
+} from '@alien-worlds/aw-antelope';
 
 import { TokenWorldsContractService } from './token-worlds-contract.service';
-import { GetTableRowsOptions, Result } from '@alien-worlds/api-core';
+import { GetTableRowsOptions, Result } from '@alien-worlds/aw-core';
 
 /**
  * A service class for interacting with the token.worlds smart contract.
  * 
  * @class TokenWorldsContractServiceImpl
- * @extends {EosSmartContractServiceImpl}
+ * @extends {AntelopeSmartContractServiceImpl}
  * @implements { TokenWorldsContractService}
 */
 export class TokenWorldsContractServiceImpl
-  extends EosSmartContractServiceImpl
+  extends AntelopeSmartContractServiceImpl
   implements TokenWorldsContractService 
 {
   /**
    * Creates an instance of TokenWorldsContractServiceImpl.
    * 
    * @constructor
-   * @param {EosRpcSourceImpl} eosRpcSourceImpl - The EOS RPC source to use for interactions.
+   * @param {AntelopeRpcSourceImpl} antelopeRpcSourceImpl - The Antelope RPC source to use for interactions.
    * @param {string} serviceUrl - Service Url
    */
-  constructor(eosRpcSourceImpl: EosRpcSourceImpl, serviceUrl: string) {
-    super(eosRpcSourceImpl, serviceUrl, 'token.worlds');
+  constructor(antelopeRpcSourceImpl: AntelopeRpcSourceImpl, serviceUrl: string) {
+    super(antelopeRpcSourceImpl, serviceUrl, 'token.worlds');
   }
 
   /**
-   * A EosSmartContractServiceImpl for the accounts table.
+   * An AntelopeSmartContractServiceImpl for the accounts table.
    * 
-   * @type {EosSmartContractServiceImpl}
+   * @type {AntelopeSmartContractServiceImpl}
    * @param {GetTableRowsOptions} options 
    */
   public async fetchAccounts (
@@ -65,9 +65,9 @@ export class TokenWorldsContractServiceImpl
       : await this.getAll<AccountsRawModel>(table_key, tableRowOptions);
   }
   /**
-   * A EosSmartContractServiceImpl for the members table.
+   * An AntelopeSmartContractServiceImpl for the members table.
    * 
-   * @type {EosSmartContractServiceImpl}
+   * @type {AntelopeSmartContractServiceImpl}
    * @param {GetTableRowsOptions} options 
    */
   public async fetchMembers (
@@ -86,9 +86,9 @@ export class TokenWorldsContractServiceImpl
       : await this.getAll<MembersRawModel>(table_key, tableRowOptions);
   }
   /**
-   * A EosSmartContractServiceImpl for the memberterms table.
+   * An AntelopeSmartContractServiceImpl for the memberterms table.
    * 
-   * @type {EosSmartContractServiceImpl}
+   * @type {AntelopeSmartContractServiceImpl}
    * @param {GetTableRowsOptions} options 
    */
   public async fetchMemberterms (
@@ -107,9 +107,9 @@ export class TokenWorldsContractServiceImpl
       : await this.getAll<MembertermsRawModel>(table_key, tableRowOptions);
   }
   /**
-   * A EosSmartContractServiceImpl for the stakeconfig table.
+   * An AntelopeSmartContractServiceImpl for the stakeconfig table.
    * 
-   * @type {EosSmartContractServiceImpl}
+   * @type {AntelopeSmartContractServiceImpl}
    * @param {GetTableRowsOptions} options 
    */
   public async fetchStakeconfig (
@@ -128,9 +128,9 @@ export class TokenWorldsContractServiceImpl
       : await this.getAll<StakeconfigRawModel>(table_key, tableRowOptions);
   }
   /**
-   * A EosSmartContractServiceImpl for the stakes table.
+   * An AntelopeSmartContractServiceImpl for the stakes table.
    * 
-   * @type {EosSmartContractServiceImpl}
+   * @type {AntelopeSmartContractServiceImpl}
    * @param {GetTableRowsOptions} options 
    */
   public async fetchStakes (
@@ -149,9 +149,9 @@ export class TokenWorldsContractServiceImpl
       : await this.getAll<StakesRawModel>(table_key, tableRowOptions);
   }
   /**
-   * A EosSmartContractServiceImpl for the staketime table.
+   * An AntelopeSmartContractServiceImpl for the staketime table.
    * 
-   * @type {EosSmartContractServiceImpl}
+   * @type {AntelopeSmartContractServiceImpl}
    * @param {GetTableRowsOptions} options 
    */
   public async fetchStaketime (
@@ -170,9 +170,9 @@ export class TokenWorldsContractServiceImpl
       : await this.getAll<StaketimeRawModel>(table_key, tableRowOptions);
   }
   /**
-   * A EosSmartContractServiceImpl for the stat table.
+   * An AntelopeSmartContractServiceImpl for the stat table.
    * 
-   * @type {EosSmartContractServiceImpl}
+   * @type {AntelopeSmartContractServiceImpl}
    * @param {GetTableRowsOptions} options 
    */
   public async fetchStat (
@@ -191,9 +191,9 @@ export class TokenWorldsContractServiceImpl
       : await this.getAll<StatRawModel>(table_key, tableRowOptions);
   }
   /**
-   * A EosSmartContractServiceImpl for the unstakes table.
+   * An AntelopeSmartContractServiceImpl for the unstakes table.
    * 
-   * @type {EosSmartContractServiceImpl}
+   * @type {AntelopeSmartContractServiceImpl}
    * @param {GetTableRowsOptions} options 
    */
   public async fetchUnstakes (

@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Fri, 14 Jul 2023 19:17:23 GMT
+ * Last updated on: Thu, 27 Jul 2023 12:31:56 GMT
  */
 
 import { 
@@ -8,7 +8,7 @@ import {
   ContractActionModel, 
   Repository, 
   injectable, 
-} from '@alien-worlds/api-core';
+} from '@alien-worlds/aw-core';
 
 import { DataDocumentType } from '../../data/dtos/token-worlds-action.dto';
 import { DataEntityType } from '../../domain/entities/token-worlds-action';

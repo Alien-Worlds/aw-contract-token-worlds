@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Fri, 14 Jul 2023 19:17:23 GMT
+ * Last updated on: Thu, 27 Jul 2023 12:31:56 GMT
  */
 
 
@@ -14,8 +14,8 @@ import {
   Stat,
   Unstakes,
 } from '../../domain/entities';
-import { ContractDelta, MapperImpl, parseToBigInt } from '@alien-worlds/api-core';
-import { MongoDB, MongoMapper } from '@alien-worlds/storage-mongodb';
+import { ContractDelta, MapperImpl, parseToBigInt } from '@alien-worlds/aw-core';
+import { MongoDB, MongoMapper } from '@alien-worlds/aw-storage-mongodb';
 import { DataEntityType } from '../../domain/entities/token-worlds-delta';
 import { TokenWorldsDeltaMongoModel, TokenWorldsDeltaRawModel } from '../dtos';
 import { TokenWorldsTableName } from '../../domain/enums';

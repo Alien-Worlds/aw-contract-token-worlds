@@ -1,12 +1,12 @@
 {
-  "name": "@alien-worlds/token-worlds-common",
+  "name": "@alien-worlds/aw-contract-token-worlds",
   "version": "0.0.25",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "files": [
     "build"
   ],
-  "repository": "https://github.com/Alien-Worlds/token-worlds-common.git",
+  "repository": "https://github.com/Alien-Worlds/aw-contract-token-worlds.git",
   "author": "Ahmad Tirmazi <16874651+ahmadtirmazi@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {

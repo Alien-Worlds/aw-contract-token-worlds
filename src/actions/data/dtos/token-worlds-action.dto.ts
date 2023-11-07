@@ -7,7 +7,10 @@ import { MongoDB } from '@alien-worlds/aw-storage-mongodb';
 
 import { BurnMongoModel, BurnRawModel } from './burn.dto';
 import { CancelMongoModel, CancelRawModel } from './cancel.dto';
-import { ClaimunstkesMongoModel, ClaimunstkesRawModel } from './claimunstkes.dto';
+import {
+  ClaimunstkesMongoModel,
+  ClaimunstkesRawModel,
+} from './claimunstkes.dto';
 import { CloseMongoModel, CloseRawModel } from './close.dto';
 import { CreateMongoModel, CreateRawModel } from './create.dto';
 import { IssueMongoModel, IssueRawModel } from './issue.dto';
@@ -58,9 +61,9 @@ export type DataRawType =
 export type TokenWorldsActionMongoModel = {
   _id?: MongoDB.ObjectId;
   block_timestamp?: Date;
-  block_number?: MongoDB.Long;
+  block_num?: MongoDB.Long;
   global_sequence?: MongoDB.Long;
-  receiver_sequence?: MongoDB.Long;
+  recv_sequence?: MongoDB.Long;
   trx_id?: string;
   action_hash?: string;
   action?: {
@@ -74,11 +77,10 @@ export type TokenWorldsActionRawModel = {
   account: string;
   name: string;
   block_timestamp: Date;
-  block_number: string;
+  block_num: string;
   global_sequence: string;
   recv_sequence: string;
   transaction_id: string;
   data: DataRawType;
   [key: string]: unknown;
 };
-

@@ -3,8 +3,7 @@
  * Last updated on: Thu, 27 Jul 2023 12:31:56 GMT
  */
 
-
-import { 
+import {
   Accounts,
   Members,
   Memberterms,
@@ -14,24 +13,35 @@ import {
   Stat,
   Unstakes,
 } from '../../domain/entities';
-import { ContractDelta, MapperImpl, parseToBigInt } from '@alien-worlds/aw-core';
+import {
+  ContractDelta,
+  MapperImpl,
+  parseToBigInt,
+} from '@alien-worlds/aw-core';
 import { MongoDB, MongoMapper } from '@alien-worlds/aw-storage-mongodb';
 import { DataEntityType } from '../../domain/entities/token-worlds-delta';
 import { TokenWorldsDeltaMongoModel, TokenWorldsDeltaRawModel } from '../dtos';
 import { TokenWorldsTableName } from '../../domain/enums';
-import { AccountsMongoMapper, AccountsRawMapper } from "./accounts.mapper";
-import { MembersMongoMapper, MembersRawMapper } from "./members.mapper";
-import { MembertermsMongoMapper, MembertermsRawMapper } from "./memberterms.mapper";
-import { StakeconfigMongoMapper, StakeconfigRawMapper } from "./stakeconfig.mapper";
-import { StakesMongoMapper, StakesRawMapper } from "./stakes.mapper";
-import { StaketimeMongoMapper, StaketimeRawMapper } from "./staketime.mapper";
-import { StatMongoMapper, StatRawMapper } from "./stat.mapper";
-import { UnstakesMongoMapper, UnstakesRawMapper } from "./unstakes.mapper";
+import { AccountsMongoMapper, AccountsRawMapper } from './accounts.mapper';
+import { MembersMongoMapper, MembersRawMapper } from './members.mapper';
+import {
+  MembertermsMongoMapper,
+  MembertermsRawMapper,
+} from './memberterms.mapper';
+import {
+  StakeconfigMongoMapper,
+  StakeconfigRawMapper,
+} from './stakeconfig.mapper';
+import { StakesMongoMapper, StakesRawMapper } from './stakes.mapper';
+import { StaketimeMongoMapper, StaketimeRawMapper } from './staketime.mapper';
+import { StatMongoMapper, StatRawMapper } from './stat.mapper';
+import { UnstakesMongoMapper, UnstakesRawMapper } from './unstakes.mapper';
 
 // Mongo Mapper
-export class TokenWorldsDeltaMongoMapper
-  extends MongoMapper<ContractDelta<DataEntityType>, TokenWorldsDeltaMongoModel>
-{
+export class TokenWorldsDeltaMongoMapper extends MongoMapper<
+  ContractDelta<DataEntityType>,
+  TokenWorldsDeltaMongoModel
+> {
   public fromEntity(
     entity: ContractDelta<DataEntityType>
   ): TokenWorldsDeltaMongoModel {
@@ -58,9 +68,7 @@ export class TokenWorldsDeltaMongoMapper
         );
         break;
       case TokenWorldsTableName.Stakes:
-        entityData = new StakesMongoMapper().fromEntity(
-          entity.data as Stakes
-        );
+        entityData = new StakesMongoMapper().fromEntity(entity.data as Stakes);
         break;
       case TokenWorldsTableName.Staketime:
         entityData = new StaketimeMongoMapper().fromEntity(
@@ -68,9 +76,7 @@ export class TokenWorldsDeltaMongoMapper
         );
         break;
       case TokenWorldsTableName.Stat:
-        entityData = new StatMongoMapper().fromEntity(
-          entity.data as Stat
-        );
+        entityData = new StatMongoMapper().fromEntity(entity.data as Stat);
         break;
       case TokenWorldsTableName.Unstakes:
         entityData = new UnstakesMongoMapper().fromEntity(
@@ -81,7 +87,7 @@ export class TokenWorldsDeltaMongoMapper
 
     const model: TokenWorldsDeltaMongoModel = {
       block_timestamp: entity.blockTimestamp,
-      block_number: new MongoDB.Long(entity.blockNumber),
+      block_num: new MongoDB.Long(entity.blockNumber),
       code: entity.code,
       scope: entity.scope,
       table: entity.table,
@@ -92,9 +98,9 @@ export class TokenWorldsDeltaMongoMapper
     };
 
     if (entity.id && MongoDB.ObjectId.isValid(entity.id)) {
-      model._id =  new MongoDB.ObjectId(entity.id);
+      model._id = new MongoDB.ObjectId(entity.id);
     }
-    
+
     return model;
   }
 
@@ -131,7 +137,7 @@ export class TokenWorldsDeltaMongoMapper
 
     const {
       _id,
-      block_number,
+      block_num,
       code,
       scope,
       table,
@@ -143,7 +149,7 @@ export class TokenWorldsDeltaMongoMapper
 
     return new ContractDelta<DataEntityType>(
       _id.toString(),
-      parseToBigInt(block_number),
+      parseToBigInt(block_num),
       code,
       scope,
       table,
@@ -158,8 +164,8 @@ export class TokenWorldsDeltaMongoMapper
 
 // Processor Task Mapper
 export class TokenWorldsDeltaProcessorTaskMapper extends MapperImpl<
-  ContractDelta<DataEntityType, TokenWorldsDeltaRawModel>, 
-    TokenWorldsDeltaRawModel
+  ContractDelta<DataEntityType, TokenWorldsDeltaRawModel>,
+  TokenWorldsDeltaRawModel
 > {
   public fromEntity(
     entity: ContractDelta<DataEntityType, TokenWorldsDeltaRawModel>
@@ -199,7 +205,7 @@ export class TokenWorldsDeltaProcessorTaskMapper extends MapperImpl<
     }
 
     const {
-      block_number,
+      block_num,
       code,
       scope,
       table,
@@ -211,7 +217,7 @@ export class TokenWorldsDeltaProcessorTaskMapper extends MapperImpl<
 
     return new ContractDelta<DataEntityType, TokenWorldsDeltaRawModel>(
       '',
-      parseToBigInt(block_number),
+      parseToBigInt(block_num),
       code,
       scope,
       table,
@@ -219,7 +225,7 @@ export class TokenWorldsDeltaProcessorTaskMapper extends MapperImpl<
       payer,
       parseToBigInt(primary_key),
       present,
-      block_timestamp,
+      block_timestamp
     );
   }
 }

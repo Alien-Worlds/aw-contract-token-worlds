@@ -205,7 +205,7 @@ export class TokenWorldsDeltaProcessorTaskMapper extends MapperImpl<
     }
 
     const {
-      block_num,
+      block_number,
       code,
       scope,
       table,
@@ -217,7 +217,7 @@ export class TokenWorldsDeltaProcessorTaskMapper extends MapperImpl<
 
     return new ContractDelta<DataEntityType, TokenWorldsDeltaRawModel>(
       '',
-      parseToBigInt(block_num),
+      parseToBigInt(block_number),
       code,
       scope,
       table,

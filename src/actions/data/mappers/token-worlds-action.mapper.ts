@@ -3,7 +3,8 @@
  * Last updated on: Thu, 27 Jul 2023 12:31:56 GMT
  */
 
-import {
+
+import { 
   Burn,
   Cancel,
   Claimunstkes,
@@ -20,42 +21,30 @@ import {
   Unlock,
   Unstake,
 } from '../../domain/entities';
-import {
-  ContractAction,
-  MapperImpl,
-  parseToBigInt,
+import { 
+  ContractAction, 
+  MapperImpl, 
+  parseToBigInt 
 } from '@alien-worlds/aw-core';
 
-import { BurnMongoMapper, BurnRawMapper } from './burn.mapper';
-import { CancelMongoMapper, CancelRawMapper } from './cancel.mapper';
-import {
-  ClaimunstkesMongoMapper,
-  ClaimunstkesRawMapper,
-} from './claimunstkes.mapper';
-import { CloseMongoMapper, CloseRawMapper } from './close.mapper';
-import { CreateMongoMapper, CreateRawMapper } from './create.mapper';
-import { IssueMongoMapper, IssueRawMapper } from './issue.mapper';
-import { MemberregMongoMapper, MemberregRawMapper } from './memberreg.mapper';
-import {
-  MemberunregMongoMapper,
-  MemberunregRawMapper,
-} from './memberunreg.mapper';
-import {
-  NewmemtermsMongoMapper,
-  NewmemtermsRawMapper,
-} from './newmemterms.mapper';
-import { StakeMongoMapper, StakeRawMapper } from './stake.mapper';
-import {
-  StakeconfigMongoMapper,
-  StakeconfigRawMapper,
-} from './stakeconfig.mapper';
-import { StaketimeMongoMapper, StaketimeRawMapper } from './staketime.mapper';
-import { TransferMongoMapper, TransferRawMapper } from './transfer.mapper';
-import { UnlockMongoMapper, UnlockRawMapper } from './unlock.mapper';
-import { UnstakeMongoMapper, UnstakeRawMapper } from './unstake.mapper';
+import { BurnMongoMapper, BurnRawMapper } from "./burn.mapper";
+import { CancelMongoMapper, CancelRawMapper } from "./cancel.mapper";
+import { ClaimunstkesMongoMapper, ClaimunstkesRawMapper } from "./claimunstkes.mapper";
+import { CloseMongoMapper, CloseRawMapper } from "./close.mapper";
+import { CreateMongoMapper, CreateRawMapper } from "./create.mapper";
+import { IssueMongoMapper, IssueRawMapper } from "./issue.mapper";
+import { MemberregMongoMapper, MemberregRawMapper } from "./memberreg.mapper";
+import { MemberunregMongoMapper, MemberunregRawMapper } from "./memberunreg.mapper";
+import { NewmemtermsMongoMapper, NewmemtermsRawMapper } from "./newmemterms.mapper";
+import { StakeMongoMapper, StakeRawMapper } from "./stake.mapper";
+import { StakeconfigMongoMapper, StakeconfigRawMapper } from "./stakeconfig.mapper";
+import { StaketimeMongoMapper, StaketimeRawMapper } from "./staketime.mapper";
+import { TransferMongoMapper, TransferRawMapper } from "./transfer.mapper";
+import { UnlockMongoMapper, UnlockRawMapper } from "./unlock.mapper";
+import { UnstakeMongoMapper, UnstakeRawMapper } from "./unstake.mapper";
 import { MongoDB, MongoMapper } from '@alien-worlds/aw-storage-mongodb';
 import { DataEntityType } from '../../domain/entities/token-worlds-action';
-import {
+import { 
   TokenWorldsActionMongoModel,
   TokenWorldsActionRawModel,
   BurnMongoModel,
@@ -92,20 +81,23 @@ import {
 import { TokenWorldsActionName } from '../../domain/enums';
 
 // Mongo Mapper
-export class TokenWorldsActionMongoMapper extends MongoMapper<
-  ContractAction<DataEntityType>,
-  TokenWorldsActionMongoModel
-> {
+export class TokenWorldsActionMongoMapper
+  extends MongoMapper<ContractAction<DataEntityType>, TokenWorldsActionMongoModel>
+{
   public fromEntity(
     entity: ContractAction<DataEntityType>
   ): TokenWorldsActionMongoModel {
     let entityData;
     switch (entity.name) {
       case TokenWorldsActionName.Burn:
-        entityData = new BurnMongoMapper().fromEntity(entity.data as Burn);
+        entityData = new BurnMongoMapper().fromEntity(
+          entity.data as Burn
+        );
         break;
       case TokenWorldsActionName.Cancel:
-        entityData = new CancelMongoMapper().fromEntity(entity.data as Cancel);
+        entityData = new CancelMongoMapper().fromEntity(
+          entity.data as Cancel
+        );
         break;
       case TokenWorldsActionName.Claimunstkes:
         entityData = new ClaimunstkesMongoMapper().fromEntity(
@@ -113,13 +105,19 @@ export class TokenWorldsActionMongoMapper extends MongoMapper<
         );
         break;
       case TokenWorldsActionName.Close:
-        entityData = new CloseMongoMapper().fromEntity(entity.data as Close);
+        entityData = new CloseMongoMapper().fromEntity(
+          entity.data as Close
+        );
         break;
       case TokenWorldsActionName.Create:
-        entityData = new CreateMongoMapper().fromEntity(entity.data as Create);
+        entityData = new CreateMongoMapper().fromEntity(
+          entity.data as Create
+        );
         break;
       case TokenWorldsActionName.Issue:
-        entityData = new IssueMongoMapper().fromEntity(entity.data as Issue);
+        entityData = new IssueMongoMapper().fromEntity(
+          entity.data as Issue
+        );
         break;
       case TokenWorldsActionName.Memberreg:
         entityData = new MemberregMongoMapper().fromEntity(
@@ -137,7 +135,9 @@ export class TokenWorldsActionMongoMapper extends MongoMapper<
         );
         break;
       case TokenWorldsActionName.Stake:
-        entityData = new StakeMongoMapper().fromEntity(entity.data as Stake);
+        entityData = new StakeMongoMapper().fromEntity(
+          entity.data as Stake
+        );
         break;
       case TokenWorldsActionName.Stakeconfig:
         entityData = new StakeconfigMongoMapper().fromEntity(
@@ -155,7 +155,9 @@ export class TokenWorldsActionMongoMapper extends MongoMapper<
         );
         break;
       case TokenWorldsActionName.Unlock:
-        entityData = new UnlockMongoMapper().fromEntity(entity.data as Unlock);
+        entityData = new UnlockMongoMapper().fromEntity(
+          entity.data as Unlock
+        );
         break;
       case TokenWorldsActionName.Unstake:
         entityData = new UnstakeMongoMapper().fromEntity(
@@ -166,9 +168,9 @@ export class TokenWorldsActionMongoMapper extends MongoMapper<
 
     const model: TokenWorldsActionMongoModel = {
       block_timestamp: entity.blockTimestamp,
-      block_num: new MongoDB.Long(entity.blockNumber),
+      block_number: new MongoDB.Long(entity.blockNumber),
       global_sequence: new MongoDB.Long(entity.globalSequence),
-      recv_sequence: new MongoDB.Long(entity.receiverSequence),
+      receiver_sequence: new MongoDB.Long(entity.receiverSequence),
       trx_id: entity.transactionId,
       action: {
         name: entity.name,
@@ -178,7 +180,7 @@ export class TokenWorldsActionMongoMapper extends MongoMapper<
     };
 
     if (entity.id && MongoDB.ObjectId.isValid(entity.id)) {
-      model._id = new MongoDB.ObjectId(entity.id);
+      model._id =  new MongoDB.ObjectId(entity.id);
     }
 
     return model;
@@ -269,9 +271,9 @@ export class TokenWorldsActionMongoMapper extends MongoMapper<
     const {
       _id,
       block_timestamp,
-      block_num,
+      block_number,
       global_sequence,
-      recv_sequence,
+      receiver_sequence,
       trx_id,
       action,
     } = mongoModel;
@@ -279,13 +281,13 @@ export class TokenWorldsActionMongoMapper extends MongoMapper<
     return new ContractAction<DataEntityType>(
       _id.toString(),
       block_timestamp,
-      parseToBigInt(block_num),
+      parseToBigInt(block_number),
       action.account,
       action.name,
       parseToBigInt(global_sequence),
-      parseToBigInt(recv_sequence),
+      parseToBigInt(receiver_sequence),
       trx_id,
-      data
+      data,
     );
   }
 }
@@ -307,10 +309,14 @@ export class TokenWorldsActionProcessorTaskMapper extends MapperImpl<
     let data;
     switch (rawModel.name) {
       case TokenWorldsActionName.Burn:
-        data = new BurnRawMapper().toEntity(rawModel.data as BurnRawModel);
+        data = new BurnRawMapper().toEntity(
+          rawModel.data as BurnRawModel
+        );
         break;
       case TokenWorldsActionName.Cancel:
-        data = new CancelRawMapper().toEntity(rawModel.data as CancelRawModel);
+        data = new CancelRawMapper().toEntity(
+          rawModel.data as CancelRawModel
+        );
         break;
       case TokenWorldsActionName.Claimunstkes:
         data = new ClaimunstkesRawMapper().toEntity(
@@ -318,13 +324,19 @@ export class TokenWorldsActionProcessorTaskMapper extends MapperImpl<
         );
         break;
       case TokenWorldsActionName.Close:
-        data = new CloseRawMapper().toEntity(rawModel.data as CloseRawModel);
+        data = new CloseRawMapper().toEntity(
+          rawModel.data as CloseRawModel
+        );
         break;
       case TokenWorldsActionName.Create:
-        data = new CreateRawMapper().toEntity(rawModel.data as CreateRawModel);
+        data = new CreateRawMapper().toEntity(
+          rawModel.data as CreateRawModel
+        );
         break;
       case TokenWorldsActionName.Issue:
-        data = new IssueRawMapper().toEntity(rawModel.data as IssueRawModel);
+        data = new IssueRawMapper().toEntity(
+          rawModel.data as IssueRawModel
+        );
         break;
       case TokenWorldsActionName.Memberreg:
         data = new MemberregRawMapper().toEntity(
@@ -342,7 +354,9 @@ export class TokenWorldsActionProcessorTaskMapper extends MapperImpl<
         );
         break;
       case TokenWorldsActionName.Stake:
-        data = new StakeRawMapper().toEntity(rawModel.data as StakeRawModel);
+        data = new StakeRawMapper().toEntity(
+          rawModel.data as StakeRawModel
+        );
         break;
       case TokenWorldsActionName.Stakeconfig:
         data = new StakeconfigRawMapper().toEntity(
@@ -360,7 +374,9 @@ export class TokenWorldsActionProcessorTaskMapper extends MapperImpl<
         );
         break;
       case TokenWorldsActionName.Unlock:
-        data = new UnlockRawMapper().toEntity(rawModel.data as UnlockRawModel);
+        data = new UnlockRawMapper().toEntity(
+          rawModel.data as UnlockRawModel
+        );
         break;
       case TokenWorldsActionName.Unstake:
         data = new UnstakeRawMapper().toEntity(
